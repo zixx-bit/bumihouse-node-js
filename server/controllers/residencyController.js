@@ -43,3 +43,7 @@ export const createResidency = asyncHandler(async(req, res) => {
     res.send(residencies)
 
 })
+
+const getResidency = asyncHandler(async(req, res) =>{
+
+})
