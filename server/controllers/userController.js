@@ -46,3 +46,6 @@ export const bookVisit = asyncHandler(async(req, res)=>{
     }
 })
 
+// function get all booking of a user
+
+
