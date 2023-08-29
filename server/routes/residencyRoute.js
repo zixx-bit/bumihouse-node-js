@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.post("/create", createResidency)
 router.get("/allresd", getAllResidencies)
-router.get("resd", getResidency)
+router.get("/:id", getResidency)
 
 export {router as residencyRoute}

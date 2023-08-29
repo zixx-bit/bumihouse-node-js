@@ -3,7 +3,7 @@ import asyncHandler from 'express-async-handler'
 import { prisma } from '../config/prismaConfig.js'
 
 export  const createUser = asyncHandler(async(req, res) => {
-    console.log("createing a user");
+    console.log("creating a user");
 
     let {email} = req.body;
 
@@ -14,11 +14,19 @@ export  const createUser = asyncHandler(async(req, res) => {
             message: "user registered successfully",
             user: user
         });
-    }else res.status(201).send({message: 'User already registered'})
-    
-    
-
-    console.log(email)
-     
+    }else res.status(201).send({message: 'User already registered'})  
+     console.log(email)     
 });
+
+export const bookVisit = asyncHandler(async(req, res)=>{
+    const {email, date} = req.body
+    const {id} = req.params
+
+    try {
+        
+    } catch (err) {
+        throw new Error(err.message)
+        
+    }
+})
 
