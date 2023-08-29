@@ -56,7 +56,7 @@ export const bookVisit = asyncHandler(async(req, res)=>{
         })
         res.status(200).send(bookings)
         
-    } catch (errr) {
+    } catch (err) {
         throw new Error(err.message)
         
     }

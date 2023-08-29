@@ -5,6 +5,6 @@
 
 router.post("/register", createUser);
 router.post("/bookVisit/:id", bookVisit);
-router.get("/allBookings", getAllBooking)
+router.get("/allBookings/:id", getAllBooking)
 
 export {router as userRoute}
