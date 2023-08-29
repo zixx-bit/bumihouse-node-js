@@ -49,6 +49,12 @@ export const bookVisit = asyncHandler(async(req, res)=>{
 // function get all booking of a user
  const getAllBooking = asyncHandler(async(req, res) =>{
     const {email} = req.body
+    try {
+        
+    } catch (errr) {
+        throw new Error(err.message)
+        
+    }
  })
 
 
