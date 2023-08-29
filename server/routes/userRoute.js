@@ -1,9 +1,10 @@
  import express from 'express'
- import {bookVisit, createUser } from '../controllers/userController.js'
+ import {bookVisit, createUser, getAllBooking } from '../controllers/userController.js'
 
  const router = express.Router();
 
 router.post("/register", createUser);
 router.post("/bookVisit/:id", bookVisit);
+router.get("/allBookings", getAllBooking)
 
 export {router as userRoute}
