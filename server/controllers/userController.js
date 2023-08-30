@@ -64,3 +64,18 @@ export const bookVisit = asyncHandler(async(req, res)=>{
  })
 
 
+//  function to cancel a booking
+
+export const cancelBooking = asyncHandler(async(req, res) =>{
+    const {email}  = req.body;
+    const{id}  =req.params
+    try {
+
+        
+    } catch (err) {
+        throw new Error(err.message)
+        
+    }
+})
+
+
