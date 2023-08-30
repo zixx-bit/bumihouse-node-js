@@ -18,7 +18,7 @@ export  const createUser = asyncHandler(async(req, res) => {
      console.log(email)     
 });
  
-// function for creating a booking
+// function for creating a booking 
 export const bookVisit = asyncHandler(async(req, res)=>{
     const {email, date} = req.body
     const {id} = req.params
@@ -35,7 +35,7 @@ export const bookVisit = asyncHandler(async(req, res)=>{
             await prisma.user.update({
                 where: {email: email},
                 data : {
-                    bookedVisits: {push: {id: id}}
+                    bookedVisits: {push: {id: id, date: date}} 
                 }
             })
         } 
