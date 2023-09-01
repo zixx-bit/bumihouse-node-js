@@ -7,7 +7,9 @@ export  const createUser = asyncHandler(async(req, res) => {
 
     let {email} = req.body;
 
-    const userExists = await prisma.user.findUnique({where: {email: email}})
+    const userExists = await prisma.user.findUnique({
+        where: {email: email
+        }})
     if(!userExists){
         const user = await prisma.user.create({data: req.body});
         res.send({
@@ -65,17 +67,30 @@ export const bookVisit = asyncHandler(async(req, res)=>{
 
 
 //  function to cancel a booking
-
 export const cancelBooking = asyncHandler(async(req, res) =>{
     const {email}  = req.body;
-    const{id}  =req.params
+    const{id} = req.params
     try {
         const user = await prisma.user.findUnique({
             where : {email : email},
             select: {bookedVisits: true}
         }) 
 
-        const index = user.bookedVisits.findIndex((visit) => visit.id ==id)
+        const index = user.bookedVisits.findIndex((visit) => visit.id === id);
+
+        if (index === -1) {
+            res.status(404).json({message: "Booking not found"})
+           
+        }else{
+            user.bookedVisits.splice(index, 1)
+            await prisma.user.update({
+                where: {email : email},
+                data: {
+                    bookedVisits: user.bookedVisits
+                }
+            })
+            res.send("Booking cancelled successfully")
+        }
 
         
     } catch (err) {
@@ -83,5 +98,24 @@ export const cancelBooking = asyncHandler(async(req, res) =>{
         
     }
 })
+
+// function to add a residency in favourite list
+
+export const favouriteResidency = asyncHandler(async(req, res) => {
+    const {email}  = req.body;
+    const {rid}  = req.params;
+
+    try {
+        const user = await prisma.user.findUnique({
+            where: {email: email}
+        })
+        if (user.favResidencesID.includes(rid)) {
+            
+        }
+        
+    } catch (err) {
+        throw new Error(err.message)
+    }
+} )
 
 
