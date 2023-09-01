@@ -117,13 +117,27 @@ export const favResidency = asyncHandler(async(req, res) => {
                         set: user.favResidencesID.filter((id)=> id !== rid)
                     }
                 }
-            })
-            
-        }
-        
-    } catch (err) {
-        throw new Error(err.message)
+            });
+            res.send({message: "Removed from favourites", user:updateUser});            
+        }else{
+            const updateUser = await prisma.user.update({
+            where: {email},
+            data: {
+                favResidencesID: {
+                    push: rid
+                }
+            }
+
+        })
+        res.send({message: "Update favourites", user:updateUser})  
+    
     }
-} )
+} 
+catch (err) {
+    throw new Error(err.message)
+}
+})
+
+    
 
 
