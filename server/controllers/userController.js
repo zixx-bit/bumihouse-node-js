@@ -101,7 +101,7 @@ export const cancelBooking = asyncHandler(async(req, res) =>{
 
 // function to add a residency in favourite list
 
-export const favouriteResidency = asyncHandler(async(req, res) => {
+export const favResidency = asyncHandler(async(req, res) => {
     const {email}  = req.body;
     const {rid}  = req.params;
 
@@ -110,6 +110,14 @@ export const favouriteResidency = asyncHandler(async(req, res) => {
             where: {email: email}
         })
         if (user.favResidencesID.includes(rid)) {
+            const updateUser = await prisma.user.update({
+                where: {email: email},
+                data: {
+                    favResidencesID:{
+                        set: user.favResidencesID.filter((id)=> id !== rid)
+                    }
+                }
+            })
             
         }
         
