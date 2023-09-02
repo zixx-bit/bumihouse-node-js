@@ -100,7 +100,6 @@ export const cancelBooking = asyncHandler(async(req, res) =>{
 })
 
 // function to add a residency in favourite list
-
 export const favResidency = asyncHandler(async(req, res) => {
     const {email}  = req.body;
     const {rid}  = req.params;
@@ -129,14 +128,20 @@ export const favResidency = asyncHandler(async(req, res) => {
             }
 
         })
-        res.send({message: "Update favourites", user:updateUser})  
+        res.send({message: "Update favourites", user:updateUser})      
+        }
+    } 
+        catch (err) {
+            throw new Error(err.message)
+        }
+        })
+
+    // function to get all favourite residencies  
     
-    }
-} 
-catch (err) {
-    throw new Error(err.message)
-}
-})
+    export const allFavResidencies  = asyncHandler(async(req, res)=>{
+        const {email} = req.body
+        const {id} = req.params
+    })
 
     
 
