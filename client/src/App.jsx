@@ -13,9 +13,9 @@ function App() {
         <Route element = {<Layout />}>
         <Route path = "/" element={<Website />}/>
         </Route>            
-    </Routes>
-</Suspense>
-    </BrowserRouter>
+      </Routes>
+    </Suspense>
+  </BrowserRouter>
 
   );
 }
