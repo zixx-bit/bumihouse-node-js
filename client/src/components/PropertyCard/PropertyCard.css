@@ -5,6 +5,16 @@
     max-width: max-content;
     margin: auto;
     transition: all 300ms ease-in;
+    position: relative;
+  }
+  .r-card>svg{
+    right: 30px;
+    top: 25px;
+    position: absolute;
+    z-index: 1;
+    color:rgba(255,255,255, 0.7);
+
+
   }
   
   .r-card > img {
