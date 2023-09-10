@@ -17,6 +17,7 @@ const Header = () => {
         <Link to="/">
         <img src="./logo.png" alt="logo" width={100} />
         </Link>
+
         {/* menu */}
         <OutsideClickHandler
           onOutsideClick={() => {
@@ -28,9 +29,12 @@ const Header = () => {
             className="flexCenter h-menu"
             style={getMenuStyles(menuOpened)}
           >
-           <NavLink></NavLink>
+           <NavLink to="/properties">Properties</NavLink>
+            <a href="mailto:zainkeepscode@gmail.com">Contact</a>
+
+            {/* login button */}
             <button className="button">
-              <a href="mailto:zainkeepscode@gmail.com">Contact</a>
+              Login
             </button>
           </div>
         </OutsideClickHandler>
