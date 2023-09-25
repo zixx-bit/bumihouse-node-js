@@ -12,8 +12,13 @@
     top: 25px;
     position: absolute;
     z-index: 1;
-    color:rgba(255,255,255, 0.7);
-    border: 1px solid white;
+    /* filter: brightness(0.5)  hue-rotate(140deg) saturate(6); */
+
+      /* filter: brightness(0.2) sepia(1) hue-rotate(140deg) saturate(6); */
+
+    color:rgba(255,255,255, 0.77);
+
+    /* border: 1px solid white; */
 
 
   }

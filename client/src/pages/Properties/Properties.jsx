@@ -1,8 +1,14 @@
 import React from 'react'
+import Searchbar from '../../components/SearchBar/SearchBar'
+
 
 const Properties = () => {
   return (
-    <div>Properties</div>
+    <div className='wrapper'>
+    <div className='flexColCenter paddings innerWidth properties-container'>
+      <Searchbar/>
+    </div>
+    </div>
   )
 }
 
