@@ -1,5 +1,6 @@
 import React from 'react'
 import Searchbar from '../../components/SearchBar/SearchBar'
+import './Properties.css'
 
 
 const Properties = () => {
