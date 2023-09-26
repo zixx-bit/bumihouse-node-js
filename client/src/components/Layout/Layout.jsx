@@ -8,8 +8,9 @@ const Layout = () => {
     <>
          <div style={{background: "var(--black)", overflow: "hidden"}}>
             <Header/>
-            <Outlet/>
+           
         </div>
+        <Outlet/>
         <Footer/>
     </>
 
