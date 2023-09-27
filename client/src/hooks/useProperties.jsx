@@ -1,12 +1,14 @@
 import React from 'react'
+import { getAllProperties } from '../utils/api'
+import {useQuery} from "react-query";
 
 const useProperties = () => {
 
-    const {data, isLoading, isError, refetch} = useQuery({queryKey: "allProperties"}, getAllProperties, {refetchOnWindowsFocus: false})
+    const {data, isLoading, isError, refetch} = useQuery("allProperties", getAllProperties, {refetchOnWindowsFocus: false})
 
   return {
     data, isError, isLoading, refetch
   }
 }
-
+        
 export default useProperties

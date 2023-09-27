@@ -8,6 +8,8 @@ import Properties from "./pages/Properties/Properties";
 import {QueryClient, QueryClientProvider} from 'react-query';
 import {ReactQueryDevtools} from "react-query/devtools";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {Toaster} from 'react-hot-toast';
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
       </Routes>
     </Suspense>
   </BrowserRouter>
+  <Toaster/>
   <ToastContainer/>
   <ReactQueryDevtools initialIsOpen = {false}/>
 </QueryClientProvider>
