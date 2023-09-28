@@ -5,6 +5,7 @@ import useProperties from '../../hooks/useProperties'
 
 
 const Properties = () => {
+  
   const {data, isError, isLoading} = useProperties()
   if (isError) {
     return(
