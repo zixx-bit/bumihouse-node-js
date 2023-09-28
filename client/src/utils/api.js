@@ -1,8 +1,8 @@
 import axios from 'axios'
 import dayjs from 'dayjs'
 import { MdExposurePlus1 } from 'react-icons/md'
-import toast, {Toaster} from 'react-hot-toast'
-// import toast, { Toaster } from 'react-toastify';
+// import toast, {Toaster} from 'react-hot-toast'
+import toast, { Toaster } from 'react-toastify';
 
 export const api = axios.create({
     baseURL: "http://localhost:8000/api",
