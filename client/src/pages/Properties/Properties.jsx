@@ -6,7 +6,15 @@ import useProperties from '../../hooks/useProperties'
 
 const Properties = () => {
   const {data, isError, isLoading} = useProperties()
-  console.log(data)
+  if (isError) {
+    return(
+      <div className='wrapper'>
+      <span>Error while fetching data</span>
+      </div>
+    )
+    
+  }
+
   return (
     <div className='wrapper'>
     <div className='flexColCenter paddings innerWidth properties-container'>

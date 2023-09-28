@@ -6,10 +6,10 @@ import { Suspense } from "react";
 import Layout from "./components/Layout/Layout";
 import Properties from "./pages/Properties/Properties";
 import {QueryClient, QueryClientProvider} from 'react-query';
-import {ReactQueryDevtools} from "react-query/devtools";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import {Toaster} from 'react-hot-toast';
+import {Toaster} from 'react-hot-toast';
 
 function App() {
 
@@ -27,11 +27,10 @@ function App() {
       </Routes>
     </Suspense>
   </BrowserRouter>
-  {/* <Toaster/> */}
+  <Toaster/>
   <ToastContainer/>
   <ReactQueryDevtools initialIsOpen = {false}/>
-</QueryClientProvider>
-  
+</QueryClientProvider>  
   );
 }
 
