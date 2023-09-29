@@ -26,7 +26,7 @@ const Properties = () => {
           radius = {1}
           color="#4066ff"
           aria-label="puff-loading"
-        />
+        /><span style={{color:"green"}}> fetching properties...</span> 
       </div>
     )
   }
