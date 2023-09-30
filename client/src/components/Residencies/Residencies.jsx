@@ -20,6 +20,7 @@ const Residencies = () => {
       </div>
     )    
   }
+  
 
   if (isLoading){
     return(
