@@ -10,6 +10,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {Toaster} from 'react-hot-toast';
+import Property from "./pages/Property/Property";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path = "/" element={<Website />}/>
         <Route path = "/Properties" element = {<Properties/>}>          
         </Route>
+        <Route path = ":propertyId" element={<Property/>}/>
         </Route>            
       </Routes>
     </Suspense>
