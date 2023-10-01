@@ -22,9 +22,10 @@ function App() {
         <Routes>
         <Route element = {<Layout />}>
         <Route path = "/" element={<Website />}/>
-        <Route path = "/Properties" element = {<Properties/>}>          
-        </Route>
+        <Route path = "/Properties">          
+        <Route index element={<Properties/>}/>
         <Route path = ":propertyId" element={<Property/>}/>
+        </Route>
         </Route>            
       </Routes>
     </Suspense>
