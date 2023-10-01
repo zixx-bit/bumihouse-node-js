@@ -2,8 +2,10 @@ import React from 'react'
 import './PropertyCard.css'
 import {AiFillHeart} from 'react-icons/ai'
 import {truncate} from 'lodash'
+import { useNavigate } from "react-router-dom";
 
 const PropertyCard = ({card}) => {
+  const navigate = useNavigate();
   return (
     <div className="flexColStart r-card">
                 <AiFillHeart size={24} />
