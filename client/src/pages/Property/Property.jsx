@@ -3,6 +3,7 @@ import {useQuery} from 'react-query';
 import {useLocation} from 'react-router-dom';
 import { getProperty } from '../../utils/api';
 import {PuffLoader} from "react-spinners";
+import {AiFillHeart} from "react-icons/ai";
 
 
 const Property = () => {
@@ -27,13 +28,25 @@ const Property = () => {
                     <span>Error while fetching the property details</span>
                 </div>
             </div>
-        )
-        
+        )       
     }   
+     
         
   return (
-    <div>Property</div>
-  )
-}
+    <div className="wrapper">
+        <div className="flexColStart paddings innerWidth property-container">
+            
+            {/* like button */}
+            <div className="like">
+                <AiFillHeart size={24} color="white"/>
+            </div>
+
+            {/* image */}
+            <img src={data?.image} alt="property image"/>
+        </div>
+
+    </div>
+  );
+};
 
 export default Property
