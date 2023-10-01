@@ -8,7 +8,7 @@ const Property = () => {
     const {pathname}=useLocation()
     const id =pathname.split('/').slice(-1)[0]
     console.log(id);
-    const{data, isLoading, isError}= useQuery(["resd", id], ()=> getPropertyetProperty(id));
+    const{data, isLoading, isError}= useQuery(["resd", id], ()=> getProperty(id));
     console.log(data)
   return (
     <div>Property</div>
