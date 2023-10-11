@@ -3,9 +3,10 @@ import {useQuery} from 'react-query';
 import {useLocation} from 'react-router-dom';
 import { getProperty } from '../../utils/api';
 import {PuffLoader} from "react-spinners";
-import {AiFillHeart, AiTwotoneCar} from "react-icons/ai";
+import { AiFillHeart, AiTwotoneCar } from "react-icons/ai";
 import './Property.css';
-import { MdMeetingRoom } from 'react-icons/md';
+import { FaShower } from "react-icons/fa"
+import { MdLocationPin, MdMeetingRoom } from 'react-icons/md';
 
 const Property = () => {
     const {pathname}=useLocation()
@@ -76,6 +77,25 @@ const Property = () => {
                     </div>
                 </div>
 
+                {/* description */}
+                <span className="secondaryText" style={{textAlign:"justify"}}>{data?.description}</span>
+
+            <div className='flexStart'>
+                <MdLocationPin size={25}/>
+                <span className="secondaryText">
+                    {
+                        data?.address
+                    }
+                    {
+                        data?.city
+                    }
+                    {
+                        data?.country
+                    }
+
+                </span>
+
+            </div>
                 </div>
 
                 {/* right side */}
