@@ -30,3 +30,11 @@
     justify-content: space-between;
     width: 100%;
 }
+.facilities{
+    gap: 1rem;
+    font-size: 0.9rem;
+    padding: 1rem;
+}
+.facility{
+    gap: 0.5rem;
+}
