@@ -79,8 +79,8 @@ const Property = () => {
 
                 {/* description */}
                 <span className="secondaryText" style={{textAlign:"justify"}}>{data?.description}</span>
-
-            <div className='flexStart'>
+                {/* adress */}
+            <div className='flexStart' style={{gap: "1rem"}}>
                 <MdLocationPin size={25}/>
                 <span className="secondaryText">
                     {
@@ -96,10 +96,16 @@ const Property = () => {
                 </span>
 
             </div>
-                </div>
+
+            {/* booking button */}
+            <button className="button">
+                    Book your visit
+            </button>
+            </div>
 
                 {/* right side */}
-                <div className="right">
+                <div className="map">
+                {/* <Map/> */}
                 </div>
                 
             </div>
