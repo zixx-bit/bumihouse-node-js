@@ -1,8 +1,6 @@
 import React from 'react'
 import {MapContainer, TileLayer} from 'react-leaflet'
-const Map  =({address,city,country}){
-
-const Map = () => {
+const Map  =({address,city,country}) => {
   return (
     <MapContainer 
     center={[53.35, 18.8]}
@@ -22,5 +20,5 @@ const Map = () => {
     </MapContainer>
     )
 }
-}
+
 export default Map
