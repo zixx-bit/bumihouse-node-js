@@ -7,6 +7,7 @@ import { AiFillHeart, AiTwotoneCar } from "react-icons/ai";
 import './Property.css';
 import { FaShower } from "react-icons/fa"
 import { MdLocationPin, MdMeetingRoom } from 'react-icons/md';
+import Map from '../../components/Map/Map';
 
 const Property = () => {
     const {pathname}=useLocation()
@@ -105,7 +106,10 @@ const Property = () => {
 
                 {/* right side */}
                 <div className="map">
-                {/* <Map/> */}
+                <Map
+                address={data?.address} 
+                city={data?.city} 
+                country= {data?.country}/>
                 </div>
                 
             </div>
