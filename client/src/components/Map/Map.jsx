@@ -12,7 +12,6 @@ const Map  =({address,city,country}) => {
         width:"100%",
         marginTop:"20px",
         zIndex:0,
-        background:'red'
 
     }}
     >
