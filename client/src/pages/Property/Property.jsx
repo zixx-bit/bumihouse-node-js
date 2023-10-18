@@ -64,7 +64,7 @@ const Property = () => {
                     {/* bathrooms */}
                     <div className="flexStart facility">
                         <FaShower size={20} color="#1F3E72"/>
-                        <span>{data?.facilities?.bathrooms}</span>
+                        <span>{data?.facilities?.bathrooms}Bathrooms</span>
                     </div>
                     {/* parkings */}
                     <div className="flexStart facility">
