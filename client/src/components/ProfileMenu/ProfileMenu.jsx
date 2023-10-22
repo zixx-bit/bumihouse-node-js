@@ -5,7 +5,6 @@ const ProfileMenu = ({user, logout}) => {
 
   return (
     <Menu>
-
       <Menu.Target>
         <Avatar src={user?.picture}  alt={user?.name} radius={"xl"}/>
         </Menu.Target>  
