@@ -14,7 +14,7 @@ import ProfileMenu from "../ProfileMenu/ProfileMenu";
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
-  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
+  // const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
 
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
@@ -35,14 +35,15 @@ const Header = () => {
             // ref={menuRef}
             className="flexCenter h-menu"
             style={getMenuStyles(menuOpened)}
-          ></div>
+          >
            <NavLink to="/properties">Properties</NavLink>
             <a href="mailto:zainkeepscode@gmail.com">Contact</a>
 
             {/* login button */}
+            </div>
+            </OutsideClickHandler>
             
-            
-            {!isAuthenticated ? (
+            {/* {!isAuthenticated ? (
             <button className="button" onClick={loginWithRedirect}>
               Login
             </button>
@@ -50,8 +51,8 @@ const Header = () => {
              : (
               <div>Profile<div/>
               )}
-        
-        
+         */}
+      
 
         {/* for medium and small screens */}
         <div
