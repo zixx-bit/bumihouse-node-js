@@ -1,10 +1,12 @@
 import React from 'react';
-import{Avatar, Menu} from '@mantine/core';
+import{Avatar, Menu} from '@mantine/hooks';
 
 const ProfileMenu = ({user, logout}) => {
 
   return (
-    <Menu>
+    <div>
+      profile
+      <Menu>
       <Menu.Target>
         <Avatar src={user?.picture}  alt={user?.name} radius={"xl"}/>
         </Menu.Target>  
@@ -16,6 +18,8 @@ const ProfileMenu = ({user, logout}) => {
         </Menu.Dropdown>
         
     </Menu>   
+    </div>
+    
   )
 
 }
