@@ -7,14 +7,13 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 // import ProfileMenu from "../ProfileMenu/ProfileMenu";
-import{Avatar, Menu} from '@mantine/core';
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
 
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
-  // const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
 
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
@@ -40,18 +39,19 @@ const Header = () => {
             <a href="mailto:zainkeepscode@gmail.com">Contact</a>
 
             {/* login button */}
-            </div>
-            </OutsideClickHandler>
             
-            {/* {!isAuthenticated ? (
+            {!isAuthenticated ? (
             <button className="button" onClick={loginWithRedirect}>
               Login
             </button>
             )
              : (
-              <div>Profile<div/>
+              <ProfileMenu />
               )}
-         */}
+        
+            </div>
+            </OutsideClickHandler>         
+            
       
 
         {/* for medium and small screens */}
