@@ -1,27 +1,23 @@
-import React from 'react';
-import{Avatar, Menu} from '@mantine/hooks';
+import React from 'react'
+import{ Avatar, Menu} from '@mantine/core'
 
 const ProfileMenu = ({user, logout}) => {
 
   return (
-    <div>
-      profile
-      <Menu>
+    
+    
+    <Menu>
       <Menu.Target>
-        <Avatar src={user?.picture}  alt={user?.name} radius={"xl"}/>
+        <Avatar src={user?.picture}  radius={"xl"}/>
         </Menu.Target>  
 
         <Menu.Dropdown>
           <Menu.Item>
-            Favourites
+            Favourites 
           </Menu.Item>
-        </Menu.Dropdown>
-        
-    </Menu>   
-    </div>
-    
+        </Menu.Dropdown>     
+     </Menu>   
   )
-
 }
 
 export default ProfileMenu
