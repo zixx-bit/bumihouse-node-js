@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {Toaster} from 'react-hot-toast';
 import Property from "./pages/Property/Property";
+import { MantineProvider } from "@mantine/core";
 
 function App() {
 
@@ -32,6 +33,8 @@ function App() {
   </BrowserRouter>
   <Toaster/>
   <ToastContainer/>
+  <MantineProvider>
+  </MantineProvider>
   <ReactQueryDevtools initialIsOpen = {false}/>
 </QueryClientProvider>  
   );

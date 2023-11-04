@@ -46,7 +46,8 @@ const Header = () => {
             </button>
             )
              : (
-              <ProfileMenu />
+              <ProfileMenu user={user} logout={logout}/>
+              <
               )}
         
             </div>
