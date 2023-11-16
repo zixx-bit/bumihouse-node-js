@@ -11,14 +11,18 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {Toaster} from 'react-hot-toast';
 import Property from "./pages/Property/Property";
-import { MantineProvider } from "@mantine/core";
 
 function App() {
 
-  const queryClient = new QueryClient()
+  const queryClient = new QueryClient();
+
+  const [userDetails, setUserDetails] = useState ({
+    favourites: [],
+    bookings: [],
+    token: null
+  })
   return (
     <QueryClientProvider client = {queryClient}>
-  <MantineProvider>
 
       <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
@@ -35,7 +39,6 @@ function App() {
   </BrowserRouter>
   <Toaster/>
   <ToastContainer/>
-  </MantineProvider>
   <ReactQueryDevtools initialIsOpen = {false}/>
 </QueryClientProvider>  
   );
