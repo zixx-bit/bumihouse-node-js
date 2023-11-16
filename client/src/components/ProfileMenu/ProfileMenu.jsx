@@ -26,8 +26,10 @@ import { ColorSwatch,
     IconPhoto,
     IconSearch,
     IconArrowsLeftRight,
-    IconTrash
-  } from "@tabler/icons";
+    IconTrash,
+    IconLogout,
+    IconLogout2
+  } from "@tabler/icons-react";
   import "./ProfileMenu.css"
 
 
@@ -81,8 +83,11 @@ import { ColorSwatch,
                 <Menu.Item icon={<IconArrowsLeftRight size={14} />}>
                   Transfer my data
                 </Menu.Item>
-                <Menu.Item color="red" icon={<IconTrash size={14} />}>
-                  Delete my account
+                <Menu.Item icon={<IconLogout size={14} />} color="red" onClick={() => {
+                  localStorage.clear();
+                  logout()
+                }} >
+                  Logout
                 </Menu.Item>
               </Menu.Dropdown>
             </Menu>
