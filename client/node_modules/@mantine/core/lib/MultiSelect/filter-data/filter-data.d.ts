@@ -6,7 +6,8 @@ interface FilterData {
     searchValue: string;
     filter(value: string, selected: boolean, item: SelectItem): boolean;
     value: string[];
+    disableSelectedItemFiltering?: boolean;
 }
-export declare function filterData({ data, searchable, limit, searchValue, filter, value }: FilterData): any[];
+export declare function filterData({ data, searchable, limit, searchValue, filter, value, disableSelectedItemFiltering, }: FilterData): any[];
 export {};
 //# sourceMappingURL=filter-data.d.ts.map

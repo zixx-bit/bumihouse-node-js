@@ -6,7 +6,7 @@ export interface AsideProps extends HorizontalSectionSharedProps, React.Componen
     /** Aside content */
     children: React.ReactNode;
 }
-declare type AsideComponent = ForwardRefWithStaticComponents<AsideProps, {
+type AsideComponent = ForwardRefWithStaticComponents<AsideProps, {
     Section: typeof Section;
 }>;
 export declare const Aside: AsideComponent;

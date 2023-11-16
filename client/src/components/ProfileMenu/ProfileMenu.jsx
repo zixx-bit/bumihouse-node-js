@@ -28,33 +28,33 @@ import { ColorSwatch,
     IconArrowsLeftRight,
     IconTrash
   } from "@tabler/icons";
+  import "./ProfileMenu.css"
 
 
 
-   function ProfileMenu() {
-    // const theme = useMantineTheme();
+   const ProfileMenu = (user, logout)=> {
+    const theme = useMantineTheme();
   
     return (
-      <Box className="App">
+      <Box className="ProfileMenu">
         {/* <Header height={{ base: 50, md: 70 }} p="md"> */}
-          {/* <div style={{ display: "flex", alignItems: "center", height: "100%" }}> */}
+          <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
             {/* <Burger size="sm" color={theme.colors.gray[6]} mr="xl" /> */}
   
             {/* <Text>Application header</Text> */}
             <Menu
-              // shadow="md"
-              // width={200}
+              shadow="md"
+              width={200}
               // position={"top-end"}
-              // returnFocus
-              // closeOnEscape
+              returnFocus
+              closeOnEscape
             >
               <Menu.Target>
-                {/* <Indicator> */}
+                <Indicator>
                   <Avatar
                     radius="xl"
-                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=250&q=80"
-                  />
-                {/* </Indicator> */}
+                    src= {user?.image} alt={user?.email} />
+                </Indicator>
               </Menu.Target>
   
               <Menu.Dropdown>
@@ -86,11 +86,11 @@ import { ColorSwatch,
                 </Menu.Item>
               </Menu.Dropdown>
             </Menu>
-          {/* </div> */}
+          </div>
         {/* </Header> */}
-         <Box mt={220}>Some block</Box>
+         {/* <Box mt={220}>Some block</Box> */}
        </Box>
-    );
+    )
   }
 
   export default ProfileMenu

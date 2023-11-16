@@ -1,7 +1,7 @@
 import React from 'react';
 import { DefaultProps, MantineColor, Selectors } from '@mantine/styles';
 import useStyles from './MenuItem.styles';
-export declare type MenuItemStylesNames = Selectors<typeof useStyles>;
+export type MenuItemStylesNames = Selectors<typeof useStyles>;
 export interface MenuItemProps extends DefaultProps {
     /** Item label */
     children?: React.ReactNode;

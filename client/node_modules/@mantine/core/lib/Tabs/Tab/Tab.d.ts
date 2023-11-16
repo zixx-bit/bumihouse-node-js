@@ -1,7 +1,7 @@
 import React from 'react';
 import { DefaultProps, Selectors, MantineColor } from '@mantine/styles';
 import useStyles from './Tab.styles';
-export declare type TabStylesNames = Selectors<typeof useStyles>;
+export type TabStylesNames = Selectors<typeof useStyles>;
 export interface TabProps extends DefaultProps, React.ComponentPropsWithoutRef<'button'> {
     /** Value that is used to connect Tab with associated panel */
     value: string;

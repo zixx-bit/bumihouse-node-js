@@ -1,7 +1,7 @@
 import React from 'react';
 import { DefaultProps } from '@mantine/styles';
 import { InputSharedProps, InputStylesNames, InputWrapperBaseProps, InputWrapperStylesNames } from '../Input';
-export declare type InputBaseStylesNames = InputStylesNames | InputWrapperStylesNames;
+export type InputBaseStylesNames = InputStylesNames | InputWrapperStylesNames;
 export interface InputBaseProps extends DefaultProps<InputBaseStylesNames>, InputSharedProps, InputWrapperBaseProps {
     /** Props passed to root element (InputWrapper component) */
     wrapperProps?: Record<string, any>;

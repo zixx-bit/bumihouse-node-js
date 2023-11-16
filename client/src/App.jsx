@@ -18,6 +18,8 @@ function App() {
   const queryClient = new QueryClient()
   return (
     <QueryClientProvider client = {queryClient}>
+  <MantineProvider>
+
       <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
@@ -33,7 +35,6 @@ function App() {
   </BrowserRouter>
   <Toaster/>
   <ToastContainer/>
-  <MantineProvider>
   </MantineProvider>
   <ReactQueryDevtools initialIsOpen = {false}/>
 </QueryClientProvider>  

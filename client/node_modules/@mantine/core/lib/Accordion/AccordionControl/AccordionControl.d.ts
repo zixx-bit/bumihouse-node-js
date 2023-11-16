@@ -1,7 +1,7 @@
 import React from 'react';
 import { DefaultProps, Selectors } from '@mantine/styles';
 import useStyles from './AccordionControl.styles';
-export declare type AccordionControlStylesNames = Selectors<typeof useStyles>;
+export type AccordionControlStylesNames = Selectors<typeof useStyles>;
 export interface AccordionControlProps extends DefaultProps, React.ComponentPropsWithoutRef<'button'> {
     /** Disables control button */
     disabled?: boolean;

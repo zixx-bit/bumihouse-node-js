@@ -5,7 +5,7 @@ import { AccordionItemStylesNames } from './AccordionItem/AccordionItem';
 import { AccordionControlStylesNames } from './AccordionControl/AccordionControl';
 import { AccordionPanel, AccordionPanelStylesNames } from './AccordionPanel/AccordionPanel';
 import { AccordionStylesParams } from './Accordion.types';
-export declare type AccordionStylesNames = AccordionItemStylesNames | AccordionPanelStylesNames | AccordionControlStylesNames;
+export type AccordionStylesNames = AccordionItemStylesNames | AccordionPanelStylesNames | AccordionControlStylesNames;
 export interface AccordionProps<Multiple extends boolean = false> extends AccordionProviderProps<Multiple>, DefaultProps<AccordionStylesNames, AccordionStylesParams>, Omit<React.ComponentPropsWithoutRef<'div'>, keyof AccordionProviderProps<Multiple>> {
 }
 export declare function Accordion<Multiple extends boolean = false>(props: AccordionProps<Multiple>): JSX.Element;

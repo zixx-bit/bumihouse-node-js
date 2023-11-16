@@ -7,7 +7,6 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
-import { MantineProvider } from "@mantine/core";
 
 
 const Header = () => {
@@ -30,7 +29,7 @@ const Header = () => {
           }}
         >     
 
-          <div
+          <div 
             // ref={menuRef}
             className="flexCenter h-menu"
             style={getMenuStyles(menuOpened)}
@@ -39,20 +38,16 @@ const Header = () => {
             <a href="mailto:zainkeepscode@gmail.com">Contact</a>
 
             {/* login button */}
-{/*             
+            
             {!isAuthenticated ? (
             <button className="button" onClick={loginWithRedirect}>
               Login
             </button>
             )
              : (
-              <ProfileMenu user={user} logout={logout}/>
-              
+                 <ProfileMenu user={user} logout={logout}/>              
               )}        
-            </div> */}
-            {/* <MantineProvider withGlobalStyles withNormalizeCSS> */}
-              <ProfileMenu />
-            {/* </MantineProvider> */}
+           
             </div>
          </OutsideClickHandler>         
             

@@ -1,7 +1,7 @@
 import React from 'react';
 import { DefaultProps, MantineSize } from '@mantine/styles';
 import { InputSharedProps, InputStylesNames, InputWrapperBaseProps, InputWrapperStylesNames } from '../Input';
-export declare type TextInputStylesNames = InputStylesNames | InputWrapperStylesNames;
+export type TextInputStylesNames = InputStylesNames | InputWrapperStylesNames;
 export interface TextInputProps extends DefaultProps<TextInputStylesNames>, InputSharedProps, InputWrapperBaseProps, Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {
     /** Input element type */
     type?: React.HTMLInputTypeAttribute;

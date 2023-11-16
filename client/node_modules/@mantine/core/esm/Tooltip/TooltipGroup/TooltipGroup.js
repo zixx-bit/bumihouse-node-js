@@ -1,5 +1,5 @@
 import React from 'react';
-import { FloatingDelayGroup } from '@floating-ui/react-dom-interactions';
+import { FloatingDelayGroup } from '@floating-ui/react';
 import { TooltipGroupProvider } from './TooltipGroup.context.js';
 
 function TooltipGroup({ children, openDelay = 0, closeDelay = 0 }) {

@@ -6,7 +6,7 @@ export interface NavbarProps extends HorizontalSectionSharedProps, React.Compone
     /** Navbar content */
     children: React.ReactNode;
 }
-declare type NavbarComponent = ForwardRefWithStaticComponents<NavbarProps, {
+type NavbarComponent = ForwardRefWithStaticComponents<NavbarProps, {
     Section: typeof Section;
 }>;
 export declare const Navbar: NavbarComponent;

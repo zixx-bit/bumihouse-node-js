@@ -1,4 +1,4 @@
-export declare type Selection = [string[], string[]];
+export type Selection = [string[], string[]];
 export declare function useSelectionState(initialSelection?: Selection): readonly [Selection, {
     select: (listIndex: 0 | 1, value: string) => void;
     deselect: (listIndex: 0 | 1, values: string[]) => void;

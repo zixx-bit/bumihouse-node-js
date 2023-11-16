@@ -6,11 +6,11 @@ export interface TransferListItem {
     group?: string;
     [key: string]: any;
 }
-export declare type TransferListData = [TransferListItem[], TransferListItem[]];
+export type TransferListData = [TransferListItem[], TransferListItem[]];
 export interface TransferListItemComponentProps {
     data: TransferListItem;
     selected: boolean;
     radius: MantineNumberSize;
 }
-export declare type TransferListItemComponent = React.FC<TransferListItemComponentProps>;
+export type TransferListItemComponent = React.FC<TransferListItemComponentProps>;
 //# sourceMappingURL=types.d.ts.map

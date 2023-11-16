@@ -5,10 +5,11 @@ import type { SelectPopoverStylesNames } from './SelectPopover/SelectPopover';
 export interface SelectItem {
     value: string;
     label?: string;
+    selected?: boolean;
     disabled?: boolean;
     group?: string;
     [key: string]: any;
 }
-export declare type BaseSelectStylesNames = InputStylesNames | InputWrapperStylesNames | SelectItemsStylesNames | SelectPopoverStylesNames;
-export declare type BaseSelectProps = InputWrapperBaseProps & InputSharedProps & Omit<React.ComponentPropsWithoutRef<'input'>, 'value' | 'onChange' | 'size' | 'defaultValue'>;
+export type BaseSelectStylesNames = InputStylesNames | InputWrapperStylesNames | SelectItemsStylesNames | SelectPopoverStylesNames;
+export type BaseSelectProps = InputWrapperBaseProps & InputSharedProps & Omit<React.ComponentPropsWithoutRef<'input'>, 'value' | 'onChange' | 'size' | 'defaultValue'>;
 //# sourceMappingURL=types.d.ts.map

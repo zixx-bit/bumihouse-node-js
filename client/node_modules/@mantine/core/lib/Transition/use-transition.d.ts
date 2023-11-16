@@ -1,4 +1,4 @@
-export declare type TransitionStatus = 'entered' | 'exited' | 'entering' | 'exiting' | 'pre-exiting' | 'pre-entering';
+export type TransitionStatus = 'entered' | 'exited' | 'entering' | 'exiting' | 'pre-exiting' | 'pre-entering';
 interface UseTransition {
     duration: number;
     exitDuration: number;

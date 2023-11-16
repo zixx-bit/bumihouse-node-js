@@ -1,7 +1,7 @@
 import React from 'react';
 import { Selectors, DefaultProps } from '@mantine/styles';
 import useStyles from './TabsPanel.styles';
-export declare type TabsPanelStylesNames = Selectors<typeof useStyles>;
+export type TabsPanelStylesNames = Selectors<typeof useStyles>;
 export interface TabsPanelProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
     /** Panel content */
     children: React.ReactNode;

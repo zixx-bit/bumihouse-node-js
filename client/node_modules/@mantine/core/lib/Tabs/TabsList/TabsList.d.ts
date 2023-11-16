@@ -2,7 +2,7 @@ import React from 'react';
 import { DefaultProps, Selectors } from '@mantine/styles';
 import { TabsPosition } from '../Tabs.types';
 import useStyles from './TabsList.styles';
-export declare type TabsListStylesNames = Selectors<typeof useStyles>;
+export type TabsListStylesNames = Selectors<typeof useStyles>;
 export interface TabsListProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
     /** <Tabs.Tab /> components */
     children: React.ReactNode;

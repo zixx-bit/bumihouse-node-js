@@ -17,7 +17,13 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-function getCurves({ size, thickness, sections, renderRoundedLineCaps }) {
+function getCurves({
+  size,
+  thickness,
+  sections,
+  renderRoundedLineCaps,
+  rootColor
+}) {
   const sum = sections.reduce((acc, current) => acc + current.value, 0);
   const accumulated = Math.PI * ((size * 0.9 - thickness * 2) / 2) * 2;
   let offset = accumulated;
@@ -27,7 +33,7 @@ function getCurves({ size, thickness, sections, renderRoundedLineCaps }) {
     curves.push({ sum, offset, data: sections[i], root: false });
     offset -= sections[i].value / 100 * accumulated;
   }
-  curves.push({ sum, offset, data: null, root: true });
+  curves.push({ sum, offset, data: { color: rootColor }, root: true });
   curvesInOrder.push(__spreadProps(__spreadValues({}, curves[curves.length - 1]), { lineRoundCaps: false }));
   if (curves.length > 2) {
     curvesInOrder.push(__spreadProps(__spreadValues({}, curves[0]), { lineRoundCaps: renderRoundedLineCaps }));

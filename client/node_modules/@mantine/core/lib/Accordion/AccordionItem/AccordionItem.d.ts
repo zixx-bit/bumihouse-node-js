@@ -1,7 +1,7 @@
 import React from 'react';
 import { DefaultProps, Selectors } from '@mantine/styles';
 import useStyles from './AccordionItem.styles';
-export declare type AccordionItemStylesNames = Selectors<typeof useStyles>;
+export type AccordionItemStylesNames = Selectors<typeof useStyles>;
 export interface AccordionItemProps extends DefaultProps<AccordionItemStylesNames>, React.ComponentPropsWithoutRef<'div'> {
     /** Value that is used to manage accordion state */
     value: string;
