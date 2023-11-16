@@ -31,6 +31,7 @@ import { ColorSwatch,
     IconLogout2
   } from "@tabler/icons-react";
   import "./ProfileMenu.css"
+import { LocalStorageCache } from '@auth0/auth0-react';
 
 
 
@@ -83,7 +84,8 @@ import { ColorSwatch,
                 <Menu.Item icon={<IconArrowsLeftRight size={14} />}>
                   Transfer my data
                 </Menu.Item>
-                <Menu.Item icon={<IconLogout size={14} />} color="red" onClick={() => {
+                <Menu.Item icon={<IconLogout size={14} />} color="red" 
+                onClick={() => {
                   localStorage.clear();
                   logout()
                 }} >
