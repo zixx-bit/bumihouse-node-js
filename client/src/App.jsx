@@ -20,10 +20,10 @@ function App() {
     favourites: [],
     bookings: [],
     token: null
-  })
+  });
   return (
+    <UserDetailContext.Provider value={{userDetails, setUserDetails}}>
     <QueryClientProvider client = {queryClient}>
-
       <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
@@ -41,6 +41,7 @@ function App() {
   <ToastContainer/>
   <ReactQueryDevtools initialIsOpen = {false}/>
 </QueryClientProvider>  
+</UserDetailContext.Provider>
   );
 }
 
