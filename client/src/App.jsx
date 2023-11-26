@@ -15,7 +15,6 @@ import Property from "./pages/Property/Property";
 function App() {
 
   const queryClient = new QueryClient();
-
   const [userDetails, setUserDetails] = useState ({
     favourites: [],
     bookings: [],
