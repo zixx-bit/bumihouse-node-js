@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { Outlet } from 'react-router-dom';
@@ -13,7 +13,7 @@ const Layout = () => {
 
   const {mutate} = useMutation({
     mutationKey: [user?.email],
-    mutationFn: () => createUserUser(user?.email)
+    mutationFn: () => createUser(user?.email)
   })
     useEffect(() =>{     
       isAuthethicated && mutate()      
