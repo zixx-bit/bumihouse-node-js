@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import userDetailContext from '../../context/userDetailsContext';
 import { useMutation } from 'react-query';
+import { createUser } from '../../utils/api';
 
 const Layout = () => {
   const {isAuthethicated, user} = useAuth0()
@@ -12,10 +13,10 @@ const Layout = () => {
 
   const {mutate} = useMutation({
     mutationKey: [user?.email],
-    mutationFn: () => createUser(user?.email)
+    mutationFn: () => createUserUser(user?.email)
   })
-    useEffect(() =>{
-      
+    useEffect(() =>{     
+      isAuthethicated && mutate()      
     }, [isAuthethicated])
 
   return (
