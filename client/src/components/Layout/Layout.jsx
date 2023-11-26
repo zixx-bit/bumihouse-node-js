@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { Outlet } from 'react-router-dom';
@@ -7,14 +7,17 @@ import userDetailContext from '../../context/userDetailsContext';
 import { useMutation } from 'react-query';
 
 const Layout = () => {
-
-  const{isAuthethicated, user}= useAuth0()
-  const{setUserDefaults} = useContext(userDetailContext)
+  const {isAuthethicated, user} = useAuth0()
+  const {setUserDetails} = useContext(userDetailContext)
 
   const {mutate} = useMutation({
     mutationKey: [user?.email],
     mutationFn: () => createUser(user?.email)
   })
+    useEffect(() =>{
+      
+    }, [isAuthethicated])
+
   return (
     <>
          <div style={{background: "var(--black)", overflow: "hidden"}}>
@@ -28,4 +31,4 @@ const Layout = () => {
   );
 }
 
-export default Layout;
+export default Layout; 
