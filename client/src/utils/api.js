@@ -28,7 +28,7 @@ export const getAllProperties = async() =>{
     }
 }
  
-export const getProperty = async( id) => {
+export const getProperty = async(id) => {
     try {
          const response = await api.get(`/residency/${id}`, {timeout: 10*1000},);
 
