@@ -1,8 +1,7 @@
 import "./App.css";
-
 import Website from "./pages/Website";
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Layout from "./components/Layout/Layout";
 import Properties from "./pages/Properties/Properties";
 import {QueryClient, QueryClientProvider} from 'react-query';
@@ -11,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {Toaster} from 'react-hot-toast';
 import Property from "./pages/Property/Property";
+import UserDetailContext from "./context/userDetailsContext";
 
 function App() {
 
