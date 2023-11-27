@@ -42,20 +42,19 @@ export const getProperty = async(id) => {
          return response.data
 
     } catch (error) {
-        toast.error("Something went wrong!")
+        toast.error("Something went wrong!");
         throw error;
     }
 }
 
 export const createUser = async(email) =>{
-    try {
+    try {        
         await api.post(`/user/register`, {email})
         
     } catch (error) {
-        toast.error("Someting went wrong, Please try again")
-        throw error
-        
-    }
+        toast.error("Someting went wrong, Please try again");
+        throw error;
+      }
 }
 
 
