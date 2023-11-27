@@ -8,15 +8,28 @@ import { useMutation } from 'react-query';
 import { createUser } from '../../utils/api';
 
 const Layout = () => {
-  const {isAuthethicated, user} = useAuth0()
+  const {isAuthethicated, user, getAccessTokenWithPopup} = useAuth0()
   const {setUserDetails} = useContext(UserDetailsContext)
 
   const {mutate} = useMutation({
     mutationKey: [user?.email],
-    mutationFn: () => createUser(user?.email)
+    mutationFn: (token) => createUser(user?.email, token)
   })
-    useEffect(() =>{     
-      isAuthethicated && mutate()      
+    useEffect(() =>{ 
+      
+      const getTokenAndRegister = async() =>{
+        const res = await getAccessTokenWithPopup({
+          authorizationParams: {
+            audience: "http://localhost:8000",
+            scope: "openid profile email"
+          },
+        });
+        localStorage.setItem("access_token", res)
+        setUserDetails((prev)=> ({...prev, token: res}));
+        mutate(res)
+      };    
+
+      isAuthethicated && getTokenAndRegister()     
     }, [isAuthethicated])
 
   return (
