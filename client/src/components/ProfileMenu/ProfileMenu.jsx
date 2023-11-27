@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { ColorSwatch,
   Group,
   useMantineTheme,
@@ -18,7 +18,7 @@ import { ColorSwatch,
   Header,
   Burger,
   Indicator,
-  Avatar}  from '@mantine/core'
+  Avatar}  from '@mantine/core';
 
   import {
     IconSettings,
@@ -30,8 +30,8 @@ import { ColorSwatch,
     IconLogout,
     IconLogout2
   } from "@tabler/icons-react";
-  import "./ProfileMenu.css"
-import { LocalStorageCache } from '@auth0/auth0-react';
+  import "./ProfileMenu.css";
+  import { LocalStorageCache } from '@auth0/auth0-react';
 
 
 
