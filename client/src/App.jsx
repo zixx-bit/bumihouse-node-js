@@ -41,7 +41,7 @@ function App() {
   <ReactQueryDevtools initialIsOpen = {false}/>
 </QueryClientProvider>  
 </UserDetailsContext.Provider>
-  );
+  );  
 }
 
 export default App;
