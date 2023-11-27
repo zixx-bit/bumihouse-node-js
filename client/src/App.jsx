@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {Toaster} from 'react-hot-toast';
 import Property from "./pages/Property/Property";
-import UserDetailContext from "./context/userDetailsContext";
+import UserDetailsContext from "./context/userDetailsContext";
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
     token: null
   });
   return (
-    <UserDetailContext.Provider value={{userDetails, setUserDetails}}>
+    <UserDetailsContext.Provider value={{userDetails, setUserDetails}}>
     <QueryClientProvider client = {queryClient}>
       <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
@@ -40,7 +40,7 @@ function App() {
   <ToastContainer/>
   <ReactQueryDevtools initialIsOpen = {false}/>
 </QueryClientProvider>  
-</UserDetailContext.Provider>
+</UserDetailsContext.Provider>
   );
 }
 
