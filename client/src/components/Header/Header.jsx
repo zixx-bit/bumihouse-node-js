@@ -12,7 +12,7 @@ import ProfileMenu from "../ProfileMenu/ProfileMenu";
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
-  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, user, logout} = useAuth0();
 
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
