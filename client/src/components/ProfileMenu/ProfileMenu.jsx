@@ -100,7 +100,7 @@ import { ColorSwatch,
     )
   }
 
-  export default ProfileMenu
+  export default ProfileMenu;
   
 
 // const ProfileMenu = ({user, logout}) => {
