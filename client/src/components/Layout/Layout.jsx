@@ -12,17 +12,18 @@ const Layout = () => {
   const {setUserDetails} = useContext(UserDetailsContext)
 
   const {mutate} = useMutation({
+  
     mutationKey: [user?.email],
     mutationFn: (token) => createUser(user?.email, token)
   })
     useEffect(() =>{ 
-      
-      const getTokenAndRegister = async() =>{
+  
+      const getTokenAndRegister = async () =>{
         const res = await getAccessTokenWithPopup({
           authorizationParams: {
             audience: "http://localhost:8000",
             scope: "openid profile email"
-          },
+          }
         });
         localStorage.setItem("access_token", res)
         setUserDetails((prev)=> ({...prev, token: res}));
