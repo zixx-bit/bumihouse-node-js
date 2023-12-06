@@ -9,7 +9,7 @@ import { createUser } from '../../utils/api';
 
 const Layout = () => {
   const {isAuthethicated, user, getAccessTokenWithPopup} = useAuth0()
-  const {setUserDetails} = useContext(UserDetailsContext)
+  const { setUserDetails } = useContext(UserDetailsContext)
 
   const {mutate} = useMutation({
   
