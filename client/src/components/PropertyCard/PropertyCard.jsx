@@ -21,4 +21,4 @@ const PropertyCard = ({card}) => {
   )
 }
 
-export default PropertyCard
+export default PropertyCard 
