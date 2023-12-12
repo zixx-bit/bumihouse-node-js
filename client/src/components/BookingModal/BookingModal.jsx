@@ -1,8 +1,13 @@
+import { Modal } from '@mantine/core'
 import React from 'react'
+
+const BookingModal = ({opened, setOpened, propertyId, email})
 
 const BookingModal = () => {
   return (
-    <div>BookingModal</div>
+    <Modal>
+
+    </Modal>
   )
 }
 
