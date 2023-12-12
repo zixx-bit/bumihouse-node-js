@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useQuery} from 'react-query';
 import {useLocation} from 'react-router-dom';
 import { getProperty } from '../../utils/api';
@@ -8,6 +8,8 @@ import './Property.css';
 import { FaShower } from "react-icons/fa"
 import { MdLocationPin, MdMeetingRoom } from 'react-icons/md';
 import Map from '../../components/Map/Map';
+import useAuthCheck from '../../hooks/useAuthCheck';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Property = () => {
     const {pathname}=useLocation()
@@ -15,6 +17,12 @@ const Property = () => {
     // console.log(id);
     const{data, isLoading, isError}= useQuery(["resd", id], ()=> getProperty(id));
     // console.log(data)
+
+    const[modalOpened, setModalOpened] = useState(false)
+    const{validateLogin} = useAuthCheck()
+    const {user} = useAuth0()
+
+
     if (isLoading) {
         return(<div className='wrapper'>
             <div className="flexCenter paddings">
@@ -99,9 +107,23 @@ const Property = () => {
             </div>
 
             {/* booking button */}
-            <button className="button">
+            <button className="button"
+                onClick={()=>{
+                    validateLogin() && setModalOpened(true)
+                }}
+            >
                     Book your visit
             </button>
+
+            {/* Booking modal */}
+
+            <BookingModal
+                opened = {modalOpened}
+                setOpened ={setModalOpened}
+                propertyId = {id}
+                email={user?.email}
+            />
+            
             </div>
 
                 {/* right side */}
