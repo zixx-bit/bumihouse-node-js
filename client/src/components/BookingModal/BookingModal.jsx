@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Modal, Button } from '@mantine/core'
 import{DatePicker} from '@mantine/dates'
+import { useMutation } from 'react-query';
+import UserDetailsContext from '../../context/userDetailsContext.js'
 
 const BookingModal = ({opened, setOpened, propertyId, email}) => {
  
-  const[value, setValue] = useState(null)
+  const[value, setValue] = useState(null);
+  const{ userDetails : {token}} = useContext(UserDetailsContext)
+  console.log(token)
+  const{mutate, isLoading} = useMutation({
+    mutateFn: () => bookVisit(value, propertyId, email),
+  });
  
   return (
     <Modal
@@ -15,7 +22,7 @@ const BookingModal = ({opened, setOpened, propertyId, email}) => {
     centered>
         <div className="flexColCenter">
         <DatePicker value={value} onChange={setValue} minDate={new Date()}/>
-        <Button>
+        <Button disabled={!value} onClick={() => mutate()}>
           Book visit
         </Button>
             
