@@ -63,7 +63,7 @@ export const bookVisit = async( date, propertyId, email) =>{
             {
                 email: email,
                 id: propertyId,
-                date: dayjs(date).format("DD/MM/YYYY",)
+                date: dayjs(date).format("DD/MM/YYYY")
             },
             // {
             //     headers:{
