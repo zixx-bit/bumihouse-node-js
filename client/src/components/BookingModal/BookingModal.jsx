@@ -31,7 +31,7 @@ const BookingModal = ({opened, setOpened, propertyId, email}) => {
     centered>
         <div className="flexColCenter">
         <DatePicker value={value} onChange={setValue} minDate={new Date()}/>
-        <Button disabled={!value} onClick={() => mutate()}
+        <Button  disabled={!value} onClick={() => mutate()}
         variant="gradient"
               gradient={{ from: 'cyan', to: 'lime', deg: 90 }}
               loading={isLoading}
