@@ -10,15 +10,15 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {Toaster} from 'react-hot-toast';
 import Property from "./pages/Property/Property";
-import UserDetailsContext from "./context/userDetailsContext";
+import UserDetailsContext from "./context/UserDetailsContext";
 
 function App() {
 
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient(); 
   const [userDetails, setUserDetails] = useState ({
     favourites: [],
     bookings: [],
-    token: null
+    token: null,
   });
   return (
     <UserDetailsContext.Provider value={{userDetails, setUserDetails}}>
