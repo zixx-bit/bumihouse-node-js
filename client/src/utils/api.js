@@ -51,15 +51,14 @@ export const createUser = async (email) => {
        await api.post(`/user/register`, {email})        
      
     } catch (error) {
-        toast.error("Someting went wrong, Please try again");
-        throw error;
+        toast.error("Someting went wrong, Please try again")
+        throw error
     }
 }
 
 export const bookVisit = async( date, propertyId, email) =>{
     try {
-        await api.post(
-            `/user/bookVisit/${propertyId}`,
+        await api.post(`/user/bookVisit/${propertyId}`,
             {
                 email: email,
                 id: propertyId,
@@ -73,7 +72,7 @@ export const bookVisit = async( date, propertyId, email) =>{
         )
         
     } catch (error) {
-        toast.error("Someething went wrong, Please try again!")
+        toast.error("Something went wrong, Please try again!")
         throw error
     }
 
