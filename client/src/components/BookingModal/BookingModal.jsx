@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Modal, Button } from '@mantine/core'
 import{DatePicker} from '@mantine/dates'
 import { useMutation } from 'react-query';
-import UserDetailsContext from '../../context/userDetailsContext.js'
+import UserDetailsContext from '../../context/UserDetailsContext.js'
 import { bookVisit } from '../../utils/api.js';
 import toast from 'react-hot-toast';
 
@@ -13,7 +13,7 @@ const BookingModal = ({opened, setOpened, propertyId, email}) => {
   const handleBookingSuccess = () =>{
     toast.success("you have booked successfully!") 
   }
-  const{mutate, isLoading} = useMutation({
+  const{ mutate, isLoading} = useMutation({
     mutateFn: () => bookVisit(value, propertyId, email),
     onSuccess: ()  => handleBookingSuccess(),
     onError:({response}) => toast.error(response.data.message),
@@ -33,7 +33,7 @@ const BookingModal = ({opened, setOpened, propertyId, email}) => {
         <DatePicker value={value} onChange={setValue} minDate={new Date()}/>
         <Button  disabled={!value} onClick={() => mutate()}
         variant="gradient"
-              gradient={{ from: 'cyan', to: 'lime', deg: 90 }}
+              gradient={{ from: 'teal', to: 'cyan', deg: 113 }}
               loading={isLoading}
               >
           Book visit
