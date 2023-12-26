@@ -18,7 +18,7 @@ function App() {
   const [userDetails, setUserDetails] = useState ({
     favourites: [],
     bookings: [],
-    token: null,
+    token: null
   });
   return (
     <UserDetailsContext.Provider value={{userDetails, setUserDetails}}>
