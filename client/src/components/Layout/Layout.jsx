@@ -9,15 +9,14 @@ import { createUser } from '../../utils/api';
 
 const Layout = () => {
   const {isAuthethicated, user, getAccessTokenWithPopup} = useAuth0()
-  const { setUserDetails } = useContext(UserDetailsContext)
+  const {setUserDetails} = useContext(UserDetailsContext)
 
-  const {mutate} = useMutation({
-  
+  const {mutate} = useMutation({  
     mutationKey: [user?.email],
     mutationFn: () => createUser(user?.email)
-  
+   
   })
-    useEffect(() =>{ 
+    useEffect(() => { 
   
       // const getTokenAndRegister = async () =>{
       //   const res = await getAccessTokenWithPopup({
