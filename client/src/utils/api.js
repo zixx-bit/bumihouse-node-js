@@ -2,7 +2,7 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import { MdExposurePlus1 } from 'react-icons/md'
 import toast from 'react-hot-toast'
-// import toast, { Toaster } from 'react-toastify';
+// import { Toaster } from 'react-toastify';
 
 export const api = axios.create({
     baseURL: "http://localhost:8000/api",
@@ -48,10 +48,10 @@ export const getProperty = async(id) => {
 
 export const createUser = async (email) => {
     try {        
-       await api.post(`/user/register`, {email})        
+       await api.post(`/user/register`, {email});       
      
     } catch (error) {
-        toast.error("Someting went wrong, Please try again")
+        toast.error("Someting went wrong, Please try again");
         throw error
     }
 }
