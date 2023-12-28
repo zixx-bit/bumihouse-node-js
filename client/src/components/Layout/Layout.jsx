@@ -1,36 +1,45 @@
-import React, { useContext, useEffect } from 'react'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
-import { Outlet } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
-import UserDetailsContext from '../../context/UserDetailsContext';
-import { useMutation } from 'react-query';
-import { createUser } from '../../utils/api';
+import React, { useContext, useEffect } from "react";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import { Outlet } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import UserDetailsContext from "../../context/UserDetailsContext";
+import { useMutation } from "react-query";
+import { createUser } from "../../utils/api";
 
 const Layout = () => {
-  const {isAuthenticated, user, getAccessTokenWithPopup} = useAuth0()
-  const {setUserDetails} = useContext(UserDetailsContext)
+  const { isAuthenticated, user, getAccessTokenWithPopup } = useAuth0();
+  const { setUserDetails } = useContext(UserDetailsContext);
 
-  const {mutate} = useMutation({  
+  const { mutate } = useMutation({
     mutationKey: [user?.email],
-    mutationFn: () => createUser(user?.email)
-   
-  })
-    useEffect(() => {  
-      isAuthenticated && mutate()     
-    }, [isAuthenticated])
+    mutationFn: () => createUser(user?.email),
+  });
+  useEffect(() => {
+    const getTokenAndRegister = async () => {
+      const res = await getAccessTokenWithPopup({
+        authorizationParams: {
+          audience: "http://localhost:8000",
+          scope: "openid profile email",
+        },
+      });
+      localStorage.setItem("access_token", res);
+      setUserDetails((prev) => ({ ...prev, token: res }));
+      console.log(res);
+    };
+
+    isAuthenticated && getTokenAndRegister() && mutate();
+  }, [isAuthenticated]);
 
   return (
     <>
-         <div style={{background: "var(--black)", overflow: "hidden"}}>
-            <Header/>
-           
-        </div>
-        <Outlet/>
-        <Footer/>
+      <div style={{ background: "var(--black)", overflow: "hidden" }}>
+        <Header />
+      </div>
+      <Outlet />
+      <Footer />
     </>
-
   );
-}
+};
 
-export default Layout; 
+export default Layout;
