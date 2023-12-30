@@ -13,7 +13,7 @@ const Layout = () => {
 
   const { mutate } = useMutation({
     mutationKey: [user?.email],
-    mutationFn: () => createUser(user?.email),
+    mutationFn: (token) => createUser(user?.email, token),
   });
   useEffect(() => {
     const getTokenAndRegister = async () => {
@@ -25,10 +25,10 @@ const Layout = () => {
       });
       localStorage.setItem("access_token", res);
       setUserDetails((prev) => ({ ...prev, token: res }));
-      console.log(res);
+      mutate(res);
     };
 
-    isAuthenticated && getTokenAndRegister() && mutate();
+    isAuthenticated && getTokenAndRegister();
   }, [isAuthenticated]);
 
   return (
