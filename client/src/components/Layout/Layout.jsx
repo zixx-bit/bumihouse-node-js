@@ -15,18 +15,25 @@ const Layout = () => {
     mutationKey: [user?.email],
     mutationFn: (token) => createUser(user?.email, token),
   });
-  useEffect(() => {
-    const getTokenAndRegister = async () => {
+  useEffect(() => {    
+    const getTokenAndRegister = async () => { 
+      try {   
       const res = await getAccessTokenWithPopup({
         authorizationParams: {
-          audience: "http://localhost:8000",
+          audience: "https://dev-8mti7gqox7uzcewe.us.auth0.com/api/v2/",
           scope: "openid profile email",
         },
-      });
+      })
+    
       localStorage.setItem("access_token", res);
       setUserDetails((prev) => ({ ...prev, token: res }));
       mutate(res);
-    };
+
+      }     
+      catch (error) {
+        console.error("Error getting access token:", error);
+      }
+    }
 
     isAuthenticated && getTokenAndRegister();
   }, [isAuthenticated]);
@@ -34,7 +41,7 @@ const Layout = () => {
   return (
     <>
       <div style={{ background: "var(--black)", overflow: "hidden" }}>
-        <Header />
+        <Header />*
       </div>
       <Outlet />
       <Footer />
