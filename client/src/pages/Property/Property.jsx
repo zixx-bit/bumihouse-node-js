@@ -11,6 +11,7 @@ import Map from '../../components/Map/Map';
 import useAuthCheck from '../../hooks/useAuthCheck';
 import { useAuth0 } from '@auth0/auth0-react';
 import BookingModal from '../../components/BookingModal/BookingModal';
+import { Button } from '@mantine/core';
 
 const Property = () => {
     const {pathname}=useLocation()
@@ -108,13 +109,22 @@ const Property = () => {
             </div>
 
             {/* booking button */}
-            <button className="button"
+            {bookings?.map((booking)=>booking.id).incudes(id) ? (
+                <Button variant='outline' w={"100%"} color='red'>
+                <span> Cancel bookings</span>
+
+                </Button>
+            ):(
+                <button className="button"
                 onClick={()=>{
                     validateLogin() && setModalOpened(true)
                 }}
             >
                     Book your visit
             </button>
+               
+            )}
+           
 
             {/* Booking modal */}
 
