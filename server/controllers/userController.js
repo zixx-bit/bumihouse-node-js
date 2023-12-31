@@ -16,7 +16,7 @@ export  const createUser = asyncHandler(async(req, res) => {
             user: user
         });
     }else res.status(201).send({message: 'User already registered'})  
-     console.log(email)     
+    //  console.log(email)     
 });
  
 // function for creating a booking 
