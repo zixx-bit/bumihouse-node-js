@@ -56,7 +56,7 @@ export const createUser = async (email, token) => {
         }
        }
     );  
-       toast.success("Registeration/Login successful")                                                                                 
+    //    toast.success("Registeration/Login successful")                                                                                 
      
     } catch (error) {
         toast.error("Failed to create your account, Please try again");
@@ -66,7 +66,7 @@ export const createUser = async (email, token) => {
     }
 }
 
-export const bookVisit = async( date, propertyId, email) =>{
+export const bookVisit = async( date, propertyId, email, token) =>{
     try {
         await api.post(`/user/bookVisit/${propertyId}`,
             {
@@ -82,7 +82,7 @@ export const bookVisit = async( date, propertyId, email) =>{
         )
         
     } catch (error) {
-        toast.error("Something went wrong, Please try again!")
+        toast.error("Booking not successful, Please try again!")
         throw error
     }
 
