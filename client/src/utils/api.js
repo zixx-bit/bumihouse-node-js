@@ -47,7 +47,7 @@ export const getProperty = async(id) => {
 }
 
 export const createUser = async (email, token) => {
-     const userCheck =await api.get(``)
+
     try {        
        await api.post(`/user/register`, {email},
        {
