@@ -10,11 +10,12 @@ const BookingModal = ({opened, setOpened, propertyId, email}) => {
  
   const[value, setValue] = useState(null);
   const{ userDetails : {token}} = useContext(UserDetailsContext)
+  // console.log(token)
   const handleBookingSuccess = () =>{
     toast.success("you have booked successfully!") 
   }
   const{ mutate, isLoading} = useMutation({
-    mutateFn: () => bookVisit(value, propertyId, email),
+    mutationFn: () => bookVisit(value, propertyId, email, token),
     onSuccess: ()  => handleBookingSuccess(),
     onError:({response}) => toast.error(response.data.message),
     onSettled: () =>setOpened(false)
@@ -45,4 +46,4 @@ const BookingModal = ({opened, setOpened, propertyId, email}) => {
   )
 }
 
-export default BookingModal
+export default BookingModal 
