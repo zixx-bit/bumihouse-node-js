@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {useQuery} from 'react-query';
 import {useLocation} from 'react-router-dom';
 import { getProperty } from '../../utils/api';
@@ -12,6 +12,7 @@ import useAuthCheck from '../../hooks/useAuthCheck';
 import { useAuth0 } from '@auth0/auth0-react';
 import BookingModal from '../../components/BookingModal/BookingModal';
 import { Button } from '@mantine/core';
+import UserDetailsContext from '../../context/UserDetailsContext';
 
 const Property = () => {
     const {pathname}=useLocation()
@@ -23,6 +24,7 @@ const Property = () => {
     const[modalOpened, setModalOpened] = useState(false)
     const{validateLogin} = useAuthCheck()
     const {user} = useAuth0()
+    const { userDetails:{ token, bookings}, setUserDetails}= useContext(UserDetailsContext)
 
 
     if (isLoading) {
@@ -109,19 +111,17 @@ const Property = () => {
             </div>
 
             {/* booking button */}
-            {bookings?.map((booking)=>booking.id).incudes(id) ? (
+            {bookings?.map((booking) => booking.id).incudes(id) ? (
                 <Button variant='outline' w={"100%"} color='red'>
                 <span> Cancel bookings</span>
-
                 </Button>
             ):(
                 <button className="button"
                 onClick={()=>{
                     validateLogin() && setModalOpened(true)
-                }}
-            >
+                }}>
                     Book your visit
-            </button>
+                </button>
                
             )}
            
