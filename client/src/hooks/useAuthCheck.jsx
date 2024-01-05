@@ -4,10 +4,11 @@ import toast from 'react-hot-toast'
 
 const useAuthCheck = () => {
 
-    const {isAuthenticated} = useAuth0()
+    const {isAuthenticated} = useAuth0();
+
     const validateLogin = () =>{
         if (!isAuthenticated) {
-            toast.error ("You must be loggged in", {position: "top-center"})
+            toast.error ("You must be loggged in", {position: "bottom-right"})
             return false
         } else{
             return true
