@@ -113,17 +113,18 @@ const Property = () => {
             </div>
 
             {/* booking button */}
-            {bookings?.map((booking) => booking.id).incudes(id) ? (
+            {bookings?.map((booking) => booking.id).includes(id) ? (
                 <Button variant='outline' w={"100%"} color='red'>
-                <span> Cancel bookings</span>
+                <span> Cancel booking</span>
                 </Button>
             ):(
-                <button className="button"
-                onClick={()=>{
-                    validateLogin() && setModalOpened(true)
-                }}>
+                <Button className="button"
+                onClick={() => {
+                    validateLogin() && setModalOpened(true);
+                }}
+                >
                     Book your visit
-                </button>
+                </Button>
                
             )}
            
