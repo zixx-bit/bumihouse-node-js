@@ -25,6 +25,7 @@ const Property = () => {
     const{validateLogin} = useAuthCheck()
     
     const {user} = useAuth0()
+    
     const { userDetails:{ token, bookings}, setUserDetails}= useContext(UserDetailsContext)
 
 
