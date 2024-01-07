@@ -13,7 +13,15 @@ const BookingModal = ({opened, setOpened, propertyId, email}) => {
   const {userDetails : {token}, setUserDetails } = useContext(UserDetailsContext)
   // console.log(token)
   const handleBookingSuccess = () =>{
-    toast.success("You have successfully booked your visit", {position: "bottom-left"});
+    toast.success("You have successfully booked your visit", {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+      },});
     setUserDetails ((prev) => ({
       ...prev,
       bookings: [
