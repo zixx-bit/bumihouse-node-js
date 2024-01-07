@@ -36,8 +36,30 @@ function App() {
       </Routes>
     </Suspense>
   </BrowserRouter>
-  <Toaster/>
-  <ToastContainer/>
+  <Toaster  toastOptions={{
+    success:{
+      duration: 3000,
+      style: {
+        margin: 'auto',
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+      },
+    },
+    error:{
+      style:{
+        // background: 'black',
+        color: 'red'
+      },
+    }
+  }}>
+
+  </Toaster>
+
+    <ToastContainer/>
   <ReactQueryDevtools initialIsOpen = {false}/>
 </QueryClientProvider>  
 </UserDetailsContext.Provider>
