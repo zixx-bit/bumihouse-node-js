@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import {useQuery} from 'react-query';
+import {useMutation, useQuery} from 'react-query';
 import {useLocation} from 'react-router-dom';
-import { getProperty } from '../../utils/api';
+import { getProperty, removeBooking } from '../../utils/api';
 import {PuffLoader} from "react-spinners";
 import { AiFillHeart, AiTwotoneCar } from "react-icons/ai";
 import './Property.css';
@@ -13,6 +13,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 import BookingModal from '../../components/BookingModal/BookingModal';
 import { Button } from '@mantine/core';
 import UserDetailsContext from '../../context/UserDetailsContext';
+import toast from 'react-hot-toast';
+import Heart from '../../components/Heart/Heart';
 
 const Property = () => {
     const {pathname}=useLocation()
@@ -26,7 +28,18 @@ const Property = () => {
     
     const {user} = useAuth0()
     
-    const { userDetails:{ token, bookings}, setUserDetails}= useContext(UserDetailsContext)
+    const { userDetails:{ token, bookings}, setUserDetails}= useContext(UserDetailsContext);
+    const {mutate: cancelBooking, isLoading: cancelling} = useMutation({
+        mutationFn: () => removeBooking( id, user?.email, token),
+        onSuccess: () =>{
+            setUserDetails((prev) => ({
+                ...prev, 
+                bookings: prev.bookings.filter((booking) => booking?.id !== id)
+            }))
+            toast.success("Booking Cancelled", {position: 'bottom-right'});
+        }
+
+    })
 
 
     if (isLoading) {
@@ -55,7 +68,7 @@ const Property = () => {
             
             {/* like button */}
             <div className="like">
-                <AiFillHeart size={24} color="white"/>
+            <Heart id={id}/>
             </div>
 
             {/* image */}
@@ -114,9 +127,16 @@ const Property = () => {
 
             {/* booking button */}
             {bookings?.map((booking) => booking.id).includes(id) ? (
-                <Button variant='outline' w={"100%"} color='red'>
+                <>
+                <Button variant='outline' w={"100%"} color='red' onClick={()=> cancelBooking()} loading={cancelling}>
                 <span> Cancel booking</span>
                 </Button>
+                <span mt={10}>
+                   <p color='green'> Your visit is already booked for date {bookings?.filter((booking) => booking?.id === id)[0].date}
+                   </p>
+                </span>
+                </>
+               
             ):(
                 <Button className="button"
                 onClick={() => {
