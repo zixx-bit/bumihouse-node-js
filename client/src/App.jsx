@@ -38,7 +38,7 @@ function App() {
   </BrowserRouter>
   <Toaster  toastOptions={{
     success:{
-      duration: 3000,
+      duration: 4000,
       style: {
         margin: 'auto',
         borderRadius: '10px',
