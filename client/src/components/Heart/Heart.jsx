@@ -7,7 +7,7 @@ import UserDetailsContext from '../../context/UserDetailsContext';
 import { checkFavourites, updateFavourites } from '../../utils/common';
 import { toFav } from '../../utils/api';
 
-
+ 
 const Heart = ({id}) => {
     
     const { validateLogin } = useAuthCheck()
@@ -21,7 +21,7 @@ const Heart = ({id}) => {
         }, [favourites])
     })
 
-    const {mutate} = useMutation({ 
+    const {mutate, isLoading} = useMutation({ 
         mutationFn: () => toFav(id, user?.email, token),
         onSuccess: () => {
             setUserdetails((prev)=> ({
@@ -42,7 +42,7 @@ const Heart = ({id}) => {
    <AiFillHeart size={24} color={heartColor} onClick={(e) =>{
         e.stopPropagation()
         handleLike()
-   }}/> 
+   }} /> 
   )
 }
 
