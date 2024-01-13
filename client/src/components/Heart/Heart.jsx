@@ -11,7 +11,7 @@ import { toFav } from '../../utils/api';
 const Heart = ({id}) => {
     
     const { validateLogin } = useAuthCheck()
-    const [heartColor, setHeartColor] = useState("white");
+    const [ heartColor, setHeartColor ] = useState("red");
     const {user}  = useAuth0 ()
     const  {userDetails: { favourites, token}, setUserdetails} = useContext(UserDetailsContext)
 
@@ -32,7 +32,7 @@ const Heart = ({id}) => {
     })
 
     const handleLike = ()=>{
-        if (validateLogin) 
+        if (validateLogin() ) 
         {   mutate()
             setHeartColor((prev) => prev === "#fa3e5f"? "white": "#fa3e5f")    
         }
