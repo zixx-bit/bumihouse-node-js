@@ -17,10 +17,11 @@ import toast from 'react-hot-toast';
 import Heart from '../../components/Heart/Heart';
 
 const Property = () => {
-    const {pathname}=useLocation()
-    const id =pathname.split('/').slice(-1)[0]
+    const {pathname} = useLocation()
+    const id = pathname.split('/').slice(-1)[0]
+    // console.log(pathname);
     // console.log(id);
-    const{data, isLoading, isError}= useQuery(["resd", id], ()=> getProperty(id));
+    const{data, isLoading, isError}= useQuery(["resd", id], () => getProperty(id));
     // console.log(data)
 
     const[modalOpened, setModalOpened] = useState(false)
@@ -68,6 +69,7 @@ const Property = () => {
             
             {/* like button */}
             <div className="like">
+            {/* <AiFillHeart size={24} color="" /> */}
             <Heart id={id}/>
             </div>
 
