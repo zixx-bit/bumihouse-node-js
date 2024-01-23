@@ -14,23 +14,22 @@ const Heart = ({id}) => {
     const { validateLogin } = useAuthCheck()
     const [heartColor, setHeartColor] = useState("white")
     const {user}  = useAuth0 ()
-    const  {
-        userDetails: { favourites, token},
-         setUserDetails } = useContext(UserDetailsContext)
+    const  { userDetails: { favourites, token}, setUserDetails } = useContext(UserDetailsContext)
 
-    // useEffect(() =>{
-    //     setHeartColor(()=>{
-    //         checkFavourites(id, favourites)
-    //     }, [favourites])
-    // })
+    useEffect(() => {
+        setHeartColor(() => checkFavourites(id, favourites))},     
+     [favourites])
 
     const {mutate, isLoading} = useMutation({ 
         mutationFn: () => toFav(id, user?.email, token),
         onSuccess: () => {
-            setUserDetails((prev)=> ({
+            setUserDetails((prev)=> (
+                {
                 ...prev, favourites: updateFavourites(id, prev.favourites) 
-            }
+               }
             )) 
+            // toast.success("Added to favourites")
+
         }
     })
 
