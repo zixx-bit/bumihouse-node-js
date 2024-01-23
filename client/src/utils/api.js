@@ -116,8 +116,8 @@ export const toFav = async(id, email, token) =>{
                     Authorization: `Bearer ${token}`,
                 },
              }
+             
          );
-         toast.success("Added to favourites")
         
     } catch (error) {
         toast.error("Unable to add to favourites") 
