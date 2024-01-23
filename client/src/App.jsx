@@ -43,7 +43,7 @@ function App() {
         margin: 'auto',
         borderRadius: '10px',
         background: '#333',
-        color: '#fff',
+        color: '#0FFF50',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
