@@ -1,3 +1,5 @@
+import React from 'react'
+
 export const getMenuStyles = (menuOpened) => {
   if (document.documentElement.clientWidth <= 800) {
     return { right: !menuOpened && "-100%" };
@@ -34,5 +36,5 @@ export const updateFavourites = (id, favourites) => {
 };
 
 export const  checkFavourites = (id, favourites) => { 
-  return  favourites.includes(id)? "#fa3e5f" : "white";
+  return  favourites?.includes(id) ? "#fa3e5f" : "white";
 };
