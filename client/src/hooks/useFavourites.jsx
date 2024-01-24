@@ -13,9 +13,9 @@ const useFavourites = () => {
     queryKey: "allFavorites",
     queryFn: () => getAllFav(user?.email, userDetails?.token),
     onSuccess: (data) =>
-      setUserDetails((prev) =>({...prev, favouries:data})),
+      setUserDetails((prev) =>({...prev, favourites:data})),
       enabled: user !== undefined,
-    staleTime: 30000,
+      staleTime: 30000,
     })
 
     queryRef.current = refetch;
