@@ -126,5 +126,23 @@ export const toFav = async(id, email, token) =>{
    
 }
 
+export const getAllFav = async(email) =>{
+    try {
+        
+        await api.get (`/user//allFavResidencies`,{
+            email: email
+        },
+        { 
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+    } catch (error) {
+
+        toast.error("unable to get favourites")
+    }
+
+}
+
 
 
