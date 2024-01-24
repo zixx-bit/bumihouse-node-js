@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useRef, useEffect } from 'react'
 import UserDetailsContext from '../context/UserDetailsContext'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useQuery } from 'react-query'
+import { getAllFav } from '../utils/api'
 
 const useFavourites = () => {
   const {userDetails, setUserDetails} = useContext(UserDetailsContext)
