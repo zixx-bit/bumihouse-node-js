@@ -10,7 +10,7 @@ import useFavourites from "../../hooks/useFavourites";
 
 const Layout = () => {
 
-  // useFavourites() 
+  useFavourites() 
   
   const { isAuthenticated, user, getAccessTokenWithPopup } = useAuth0();
   const { setUserDetails } = useContext(UserDetailsContext);
