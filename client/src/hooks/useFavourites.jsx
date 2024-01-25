@@ -10,7 +10,7 @@ const useFavourites = () => {
   const queryRef = useRef()
 
   const {data, isError, isLoading, refetch} = useQuery({
-    queryKey: "allFavorites",
+    queryKey: "allFavResidencies",
     queryFn: () => getAllFav(user?.email, userDetails?.token),
     onSuccess: (data) =>
       setUserDetails((prev) =>({...prev, favourites:data})),
