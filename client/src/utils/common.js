@@ -33,6 +33,10 @@ export const updateFavourites = (id, favourites) => {
   }
 };
 
-export const  checkFavourites = (id, favourites) => { 
-  return  favourites?.includes(id) ? "#fa3e5f" : "white";
+// export const  checkFavourites = (id, favourites) => { 
+//   return  favourites?.includes(id) ? "#fa3e5f" : "white";
+// };
+
+export const checkFavourites = (id, favourites) => {
+  return Array.isArray(favourites) && favourites?.includes(id) ? "#fa3e5f" : "white";
 };
