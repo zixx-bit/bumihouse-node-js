@@ -17,8 +17,8 @@ const Heart = ({id}) => {
     const  { userDetails: { favourites, token}, setUserDetails } = useContext(UserDetailsContext)
 
     useEffect(() => {
-        setHeartColor(() => checkFavourites(id, favourites))},     
-     [favourites])
+        setHeartColor(() => checkFavourites(id, favourites))
+    }, [favourites])
 
     const {mutate, isLoading} = useMutation({ 
         mutationFn: () => toFav(id, user?.email, token),
