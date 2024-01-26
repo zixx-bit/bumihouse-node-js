@@ -45,3 +45,8 @@
 .property-details .button:hover{
     transform: scale(1.02);
 }
+.property-details .span .p{
+    /* width: 100%; */
+    color: darkgreen;
+    /* margin-top: 1rem; */
+}
