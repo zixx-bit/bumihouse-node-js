@@ -140,7 +140,7 @@ export const getAllFav = async(email, token) =>{
         }
        );
     //    toast.success("all favs fetched")
-       console.log(res)
+    //    console.log(res)
        return res
 
     } catch (error) {
@@ -148,6 +148,29 @@ export const getAllFav = async(email, token) =>{
         throw error
     }
 
+}
+
+export const getAllBookings = async(email, token ) => {
+    if (!token ) return
+    try {        
+        const allBookings  = await api.post(`/user/allBookings`,
+            {
+            email: email,
+            },
+          {
+            headers:{
+                Authorization: `Bearer ${token}`,
+            },
+         }
+        )
+        console.log(allBookings)
+        return allBookings.data["bookedVisits"];
+        
+    } catch (error) {
+        toast.error ("Unable to get your bookings")
+        throw error
+        
+    }
 }
 
 
