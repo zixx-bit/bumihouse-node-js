@@ -2,7 +2,7 @@ import React, { useContext, useRef, useEffect } from 'react';
 import UserDetailsContext from '../context/UserDetailsContext';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useQuery } from 'react-query';
-import { getAllBookings, getAllFav } from '../utils/api';
+import { getAllBookings } from '../utils/api';
 
 const useBookings = () => {
   const {userDetails, setUserDetails} = useContext(UserDetailsContext);
