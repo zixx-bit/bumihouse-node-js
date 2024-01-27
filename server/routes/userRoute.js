@@ -6,7 +6,7 @@ import jwtCheck from '../config/auth0Config.js';
 
 router.post("/register", jwtCheck, createUser);
 router.post("/bookVisit/:id",jwtCheck, bookVisit);
-router.get("/allBookings", getAllBooking)
+router.post("/allBookings", getAllBooking)
 router.post("/removeBooking/:id",jwtCheck, cancelBooking)
 router.post("/favouriteResidency/:rid",jwtCheck, favResidency)
 router.post("/allFavResidencies",jwtCheck, allFavResidencies)
