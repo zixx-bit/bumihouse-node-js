@@ -156,7 +156,7 @@ export const getAllBookings = async(email, token ) => {
         const res  = await api.post(
         `/user/allBookings`,
             {
-            email,
+            email: email,
             },
           {
             headers: {
@@ -164,7 +164,7 @@ export const getAllBookings = async(email, token ) => {
             },
          }
         );
-        console.log("res", res)
+        console.log(res)
         return res.data["bookedVisits"];
         
     } catch (error) {
