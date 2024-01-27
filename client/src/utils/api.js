@@ -140,7 +140,7 @@ export const getAllFav = async(email, token) =>{
         }
        );
     //    toast.success("all favs fetched")
-    //    console.log(res)
+       console.log(res)
        return res
 
     } catch (error) {
@@ -153,7 +153,7 @@ export const getAllFav = async(email, token) =>{
 export const getAllBookings = async(email, token ) => {
     if (!token ) return
     try {        
-        const allBookings  = await api.post(`/user/allBookings`,
+        const allBookings  = await api.get(`/user/allBookings`,
             {
             email: email,
             },
