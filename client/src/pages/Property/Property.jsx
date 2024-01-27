@@ -83,7 +83,9 @@ const Property = () => {
 
                 {/* head */}
                 <div className="flexStart head">
-                    <span className="primaryText">{data?.title}</span>
+                {bookings?.map((booking) => booking.id).includes(id) ? (
+                    <span className="primaryText">{data?.title}</span> ):  (  
+                           <span className="primaryText">{data?.title}</span>)}
                     <span className="orangeText" style={{fontSize:'1.5rem'}}>Ksh {data?.price}</span>
                 </div>
 
@@ -130,13 +132,15 @@ const Property = () => {
             {/* booking button */}
             {bookings?.map((booking) => booking.id).includes(id) ? (
                 <>
+                <span mt={10}>
+                   <p style={{  color: 'green', fontWeight: 'inherit'
+                   ,marginBottom: '2rem', marginTop: '2rem' }} > Your visit is already booked for date {bookings?.filter((booking) => booking?.id === id)[0].date}
+                   </p>
+                </span>
                 <Button variant='outline' w={"100%"} color='red' onClick={()=> cancelBooking()} loading={cancelling}>
                 <span> Cancel booking</span>
                 </Button>
-                <span mt={10}>
-                   <p color='green'> Your visit is already booked for date {bookings?.filter((booking) => booking?.id === id)[0].date}
-                   </p>
-                </span>
+              
                 </>
                
             ):(
