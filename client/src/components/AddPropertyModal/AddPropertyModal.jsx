@@ -2,10 +2,8 @@ import { Container, Modal, Stepper } from '@mantine/core'
 import React, { useState } from 'react'
 import AddLocation from '../AddLocation/AddLocation'
 import {useAuth0 } from '@auth0/auth0-react'
-import useCountries from '../../hooks/useCountries'
 
 const AddPropertyModal = ({opened, setOpened}) => {
-  const {getAll} = useCountries()
   const user = useAuth0()  
   const[active, setActive] = useState(0)
   const[propertyDetails, setPropertyDetails] = useState({              
