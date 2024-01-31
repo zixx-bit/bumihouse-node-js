@@ -5,6 +5,7 @@ import { getProperty, removeBooking } from '../../utils/api';
 import {PuffLoader} from "react-spinners";
 import { AiFillHeart, AiTwotoneCar } from "react-icons/ai";
 import './Property.css';
+import { FaCalendarCheck } from "react-icons/fa";
 import { FaShower } from "react-icons/fa"
 import { MdLocationPin, MdMeetingRoom } from 'react-icons/md';
 import Map from '../../components/Map/Map';
@@ -14,6 +15,7 @@ import BookingModal from '../../components/BookingModal/BookingModal';
 import { Button } from '@mantine/core';
 import UserDetailsContext from '../../context/UserDetailsContext';
 import toast from 'react-hot-toast';
+import { BsCalendarCheck } from "react-icons/bs";
 import Heart from '../../components/Heart/Heart';
 
 const Property = () => {
@@ -84,8 +86,13 @@ const Property = () => {
                 {/* head */}
                 <div className="flexStart head">
                 {bookings?.map((booking) => booking.id).includes(id) ? (
-                    <span className="primaryText">{data?.title}</span> ):  (  
-                           <span className="primaryText">{data?.title}</span>)}
+                  <> 
+                 
+                  
+                    <span  className="primaryText">{data?.title}</span>
+                    </> ): 
+                      (<span className="primaryText">{data?.title}</span>)
+                }
                     <span className="orangeText" style={{fontSize:'1.5rem'}}>Ksh {data?.price}</span>
                 </div>
 
@@ -132,15 +139,18 @@ const Property = () => {
             {/* booking button */}
             {bookings?.map((booking) => booking.id).includes(id) ? (
                 <>
-                <span mt={10}>
-                   <p style={{  color: 'green', fontWeight: 'inherit'
-                   ,marginBottom: '2rem', marginTop: '2rem' }} > Your visit is already booked for date {bookings?.filter((booking) => booking?.id === id)[0].date}
-                   </p>
+                <div>
+                <span mt={10}>                 
+                   <p style={{  color: 'green', fontWeight: ''
+                   ,marginBottom: '2rem', marginTop: '2rem' }} >
+                    <span><BsCalendarCheck size={20} color="green" style={{marginRight:"1rem"}}/></span> Your visit is already booked for date {bookings?.filter((booking) => booking?.id === id)[0].date}
+                  
+                   </p> 
                 </span>
+                </div>
                 <Button variant='outline' w={"100%"} color='red' onClick={()=> cancelBooking()} loading={cancelling}>
                 <span> Cancel booking</span>
-                </Button>
-              
+                </Button>              
                 </>
                
             ):(

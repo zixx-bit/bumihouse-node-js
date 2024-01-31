@@ -48,3 +48,8 @@ export const updateFavourites = (id, favourites) => {
 export const checkFavourites = (id, favourites) => {
   return Array.isArray(favourites) && favourites?.includes(id) ? "#fa3e5f" : "white";
 };
+
+export const validateString = (value) => {
+  value?.length <  3 || value == null? "Must have atleast 3 characters" : null;
+  
+}
