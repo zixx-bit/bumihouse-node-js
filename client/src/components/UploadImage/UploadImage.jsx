@@ -20,7 +20,7 @@ const UploadImage = ({prevStep, nextStep, propertyDetails, setPropertyDetails}) 
         widgetRef.current = cloudinaryRef.current.createUploadWidget({
             cloudName: "dlvdrkj3q",
             uploadPreset: "ih3icp4n",
-            maxFiles: 1
+            maxFiles: 3
         },(err, result) => {
             if (result.event === "success") 
             {
