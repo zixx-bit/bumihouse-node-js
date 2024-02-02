@@ -42,28 +42,24 @@ const  BasicDetails = ({prevStep, nextStep, propertyDetails, setPropertyDetails}
        
           <div className="flexCenter">
           
-          {/* left side */}
           {/* inputs */} 
           <div className="flexColStart">
           <Select
           w={"100%"}
           withAsterisk
           label="Title"
-          clearable
-          searchable
-          data={getAll()}
+          placeholder='Property Name'
           {
-            ...form.getInputProps("country", {type: "input"})
-          }>
-          
+            ...form.getInputProps("title")
+          }>          
           </Select>
 
           <TextInput
           w={"100%"}
           withAsterisk
-          label ="City"
+          label ="Description"
           {
-            ...form.getInputProps("city", {type: "input"})
+            ...form.getInputProps("description")
           }>
           </TextInput>
 
