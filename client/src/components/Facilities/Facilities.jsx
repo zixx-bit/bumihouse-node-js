@@ -1,6 +1,13 @@
 import { Box, Button, Group, NumberInput } from '@mantine/core'
 import { useForm } from '@mantine/form';
-import React from 'react'
+import { useAuth0 } from '@auth0/auth0-react';
+import { useMutation } from 'react-query';
+import UserDetailContext from "../../context/UserDetailsContext"
+import useProperties from "../../hooks/useProperties.jsx"
+import React, { useContext } from 'react'
+import toast from 'react-hot-toast';
+import { createResidency } from '../../utils/api';
+
 
 const Facilities = ({prevStep, propertyDetails, setPropertyDetails, setOpened, setActiveStep}) => {
 
@@ -8,20 +15,64 @@ const Facilities = ({prevStep, propertyDetails, setPropertyDetails, setOpened, s
     initialValues: {
       bedrooms: propertyDetails.facilities.bedrooms,
       parkings: propertyDetails.facilities.parkings,
-      bathrooms: propertyDetails.facilities,
+      bathrooms: propertyDetails.facilities.bathrooms,
     },
     validate: {
       bedrooms: (value) => (value < 1 ? "must have atleast one room" : null),
-      bathrooms: (value) => (value < 1 ? "Must have atleast one bathroom": null,
+      bathrooms: (value) => value < 1 ? "Must have atleast one bathroom": null,
     },
   })
 
   const {bedrooms, parkings, bathrooms} = form.values
 
   const handleSubmit =() =>{
-    const {hasError}
-
+    const {hasErrors} = form.validate();
+    if (!hasErrors) {
+      setPropertyDetails((prev) => ({
+        ...prev, facilities:{
+          bedrooms, parkings, bathrooms
+        }
+      }));
+      mutate()
+      
+    }
   }
+
+//  upload logic
+const {user} = useAuth0()
+const {userDetails: {token} }= useContext(UserDetailContext);
+const {refetch: refetchProperties} = useProperties();
+
+const {mutate , isLoading} = useMutation ({
+      mutationFn: () => createResidency({
+        ...propertyDetails, facilities: {bedrooms, parkings, bathrooms},
+      },token),
+      onError: ({response}) => toast.error (response.data.message,{position: "bottom-right"}),
+      onSettled: () => {
+        toast.success ("Added successfully", {position: "bottom-right"})
+        setPropertyDetails= ({              
+          title: "",
+          description: "",
+          price: 0,
+          country: "",
+          city: "",
+          address: "",       
+          image: null,
+          facilities: {
+            bathrooms: 0,
+            parking: 0,
+            bedrooms: 0,
+          },
+        userEmail: user?.email,
+        })
+        setOpened(false)
+        setActiveStep(0)
+        refetchProperties()
+      }
+
+    })
+
+
   return (
     <Box maw="30%" mx="auto" my="sm">
     <form 
@@ -63,6 +114,6 @@ const Facilities = ({prevStep, propertyDetails, setPropertyDetails, setOpened, s
     </form>
     </Box>
   )
-}
 
+}
 export default Facilities
