@@ -1,96 +1,84 @@
 import React from 'react'
 import { useForm } from '@mantine/form';
 import { validateString } from '../../utils/common';
-import { Button, Group, Select, TextInput } from '@mantine/core';
+import { Box, Button, Group, NumberInput, Select, TextInput, Textarea } from '@mantine/core';
 import useCountries from '../../hooks/useCountries'
 import Map from '../Map/Map'
 // import map from '../../../node_modules'
 
 
 
-const  BasicDetails = ({prevStep, nextStep, propertyDetails, setPropertyDetails}) => {
-   
+const  BasicDetails = ({prevStep, nextStep, propertyDetails, setPropertyDetails}) => {   
   const form = useForm({
     initialValues: {
       title: propertyDetails?.title,
       description: propertyDetails?.description,
       price: propertyDetails?.price
     },
-
     validate: {
       title: (value) => validateString(value),
       description: (value) => validateString(value),
       price: (value) => value < 1000? "Must be greater than 999 dollars": null,
     },
-  })
+  });
 
   const {title, description, price} = form.values;
 
   const handleSubmit = () =>{
     const{hasErrors} = form.validate()
     if (!hasErrors) {
-      setPropertyDetails((prev) => ({...prev, city, address, country}))
+      setPropertyDetails((prev) => ({...prev, title, description, price}))
       nextStep()
     }
   }
   
-  return (    
+  return ( 
+    <Box maw="50%" mx="auto" my="md">   
         <form onSubmit={(e) => {
           e.preventDefault();
           handleSubmit()
         }}>
-       
-          <div className="flexCenter">
-          
-          {/* inputs */} 
-          <div className="flexColStart">
-          <Select
-          w={"100%"}
-          withAsterisk
-          label="Title"
-          placeholder='Property Name'
-          {
-            ...form.getInputProps("title")
-          }>          
-          </Select>
+                
+    <TextInput
+        withAsterisk
+        label="Title"
+        placeholder="Property Name"
+        {
+        ...form.getInputProps("title")
+        }>          
+    </TextInput>
 
-          <TextInput
-          w={"100%"}
-          withAsterisk
-          label ="Description"
-          {
+    <Textarea
+        placeholder="Description"
+        withAsterisk
+        label ="Description"
+        {
             ...form.getInputProps("description")
-          }>
-          </TextInput>
+        }>
+    </Textarea>
 
-          <TextInput
-          w={"100%"}
-          withAsterisk
-          label="Address"
-          {
-            ...form.getInputProps("address", {type: "input"})
-          }>
-          </TextInput>
+    <NumberInput
+      withAsterisk
+      label="Price"
+      placeholder="1000"
+      min={0}
+      {
+          ...form.getInputProps("price")
+      }>
+    </NumberInput>
+    
+          <Group position='center' mt='xl'>
+            <Button variant='default' onClick={prevStep}>
+            Back
+            </Button>
 
-            </div>
-          
-
-          {/* right side */}
-          <div style={{flex:1}}>
-          <Map 
-            address = {address}
-            city = {city}
-            country = {country}
-          />
-          </div>
-          </div>
-
-          <Group position="center" mt={"xl"}>
-            <Button type="submit">Next Step</Button>
-          </Group>
-
+            <Button type='submit'>
+            Next step
+            </Button>
+        </Group>        
         </form>
+      </Box>
   )
 }
 
-export default BasicDetails
+export default BasicDetails;
