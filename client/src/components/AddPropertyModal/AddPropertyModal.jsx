@@ -67,7 +67,7 @@ const AddPropertyModal = ({opened, setOpened}) => {
                 setPropertyDetails = {setPropertyDetails}
                />
               </Stepper.Step>
-              <Stepper.Step>
+              <Stepper.Step label="Facilities" description="Other facilities">
                 <Facilities
                   prevStep = {prevStep}
                   propertyDetails  = {propertyDetails}
@@ -75,7 +75,7 @@ const AddPropertyModal = ({opened, setOpened}) => {
                   setOpened ={setOpened}
                   setActiveStep = {setActive}
                 />
-              </Stepper.Step>
+              </Stepper.Step>        
               <Stepper.Completed>
                 Completed, click back button to get to previous step
               </Stepper.Completed>
