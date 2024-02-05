@@ -61,7 +61,7 @@ const  BasicDetails = ({prevStep, nextStep, propertyDetails, setPropertyDetails}
       withAsterisk
       label="Price"
       placeholder="1000"
-      min={0}
+      min={999}
       {
           ...form.getInputProps("price")
       }>
