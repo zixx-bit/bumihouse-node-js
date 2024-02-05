@@ -1,21 +1,21 @@
-import { Box, Button, Group, NumberInput } from '@mantine/core'
+import { Box, Button, Group, NumberInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useMutation } from 'react-query';
-import UserDetailContext from "../../context/UserDetailsContext"
-import useProperties from "../../hooks/useProperties.jsx"
-import React, { useContext } from 'react'
+import UserDetailContext from "../../context/UserDetailsContext";
+import useProperties from "../../hooks/useProperties.jsx";
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { createResidency } from '../../utils/api';
 
 
-const Facilities = ({prevStep, propertyDetails, setPropertyDetails, setOpened, setActiveStep}) => {
-
+const Facilities = ({prevStep, propertyDetails, 
+  setPropertyDetails, setOpened, setActiveStep, }) => {
   const form = useForm({
     initialValues: {
-      bedrooms: propertyDetails.facilities.bedrooms,
-      parkings: propertyDetails.facilities.parkings,
       bathrooms: propertyDetails.facilities.bathrooms,
+      parking: propertyDetails. facilities.parking,
+      bedrooms: propertyDetails. facilities.bedrooms,     
     },
     validate: {
       bedrooms: (value) => (value < 1 ? "must have atleast one room" : null),
@@ -23,18 +23,17 @@ const Facilities = ({prevStep, propertyDetails, setPropertyDetails, setOpened, s
     },
   })
 
-  const {bedrooms, parkings, bathrooms} = form.values
+  const {bathrooms, bedrooms, parking} = form.values;
+  console.log(bathrooms,bedrooms,parking);
 
-  const handleSubmit =() =>{
-    const {hasErrors} = form.validate();
+  const handleSubmit = () => {
+    const { hasErrors } = form.validate();
     if (!hasErrors) {
       setPropertyDetails((prev) => ({
-        ...prev, facilities:{
-          bedrooms, parkings, bathrooms
-        }
+        ...prev, 
+        facilities:{ bedrooms, parking, bathrooms}
       }));
-      mutate()
-      
+      mutate()      
     }
   }
 
@@ -45,12 +44,12 @@ const {refetch: refetchProperties} = useProperties();
 
 const {mutate , isLoading} = useMutation ({
       mutationFn: () => createResidency({
-        ...propertyDetails, facilities: {bedrooms, parkings, bathrooms},
+        ...propertyDetails, facilities: {bedrooms, parking, bathrooms},
       },token),
-      onError: ({response}) => toast.error (response.data.message,{position: "bottom-right"}),
+      onError: ({response}) => toast.error (response.data.message, {position: "bottom-right"}),
       onSettled: () => {
-        toast.success ("Added successfully", {position: "bottom-right"})
-        setPropertyDetails= ({              
+        toast.success ("Added successfully", {position: "bottom-right"});
+        setPropertyDetails = ({              
           title: "",
           description: "",
           price: 0,
@@ -64,10 +63,10 @@ const {mutate , isLoading} = useMutation ({
             bedrooms: 0,
           },
         userEmail: user?.email,
-        })
-        setOpened(false)
-        setActiveStep(0)
-        refetchProperties()
+        });
+        setOpened(false);
+        setActiveStep(0);
+        refetchProperties();
       }
 
     })
@@ -76,7 +75,7 @@ const {mutate , isLoading} = useMutation ({
   return (
     <Box maw="30%" mx="auto" my="sm">
     <form 
-    onSubmit={(e)=>{
+       onSubmit={(e)=>{
         e.preventDefault();
         handleSubmit();
     }}>
@@ -91,7 +90,7 @@ const {mutate , isLoading} = useMutation ({
         <NumberInput
         label="No of Parkings"
         min={0}
-        {...form.getInputProps("parkings")}>
+        {...form.getInputProps("parking")}>
         </NumberInput>
 
         <NumberInput
@@ -106,9 +105,10 @@ const {mutate , isLoading} = useMutation ({
     Back
     </Button>
 
-    <Button type="submit" color="green" disabled={isLoading}>
-    {isLoading ? "Sumitting" : "Add Property"}
-
+    <Button type="submit" color="green" 
+    disabled={isLoading}
+    >Add Property
+    {isLoading ? "Submitting" : "Add Property"}
     </Button>
     </Group>
     </form>
