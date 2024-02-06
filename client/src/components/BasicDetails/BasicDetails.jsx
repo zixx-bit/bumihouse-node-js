@@ -23,6 +23,7 @@ const  BasicDetails = ({prevStep, nextStep, propertyDetails, setPropertyDetails}
   });
 
   const {title, description, price} = form.values;
+  console.log(title, description, price);
 
   const handleSubmit = () =>{
     const{hasErrors} = form.validate()
