@@ -49,7 +49,7 @@ const Layout = () => {
   return (
     <>
       <div style={{ background: "var(--black)", overflow: "hidden" }}>
-        <Header />*
+        <Header />
       </div>
       <Outlet />
       <Footer />
