@@ -50,15 +50,16 @@ const AddPropertyModal = ({opened, setOpened}) => {
                   setPropertyDetails = {setPropertyDetails}
                 />
               </Stepper.Step>
+
               <Stepper.Step label="Images" description="Upload ">
                <UploadImage
                 prevStep =  {prevStep}
                 nextStep = {nextStep}
                 propertyDetails = {propertyDetails}
                 setPropertyDetails = {setPropertyDetails}
-                >                
-               </UploadImage>
+                />                         
               </Stepper.Step>
+
               <Stepper.Step label="Basic" description="Details">
                <BasicDetails
                 prevStep =  {prevStep}
@@ -67,6 +68,7 @@ const AddPropertyModal = ({opened, setOpened}) => {
                 setPropertyDetails = {setPropertyDetails}
                />
               </Stepper.Step>
+
               <Stepper.Step label="Facilities" description="Other facilities">
                 <Facilities
                   prevStep = {prevStep}
@@ -76,9 +78,11 @@ const AddPropertyModal = ({opened, setOpened}) => {
                   setActiveStep = {setActive}
                 />
               </Stepper.Step>        
+              
               <Stepper.Completed>
                 Completed, click back button to get to previous step
               </Stepper.Completed>
+            
             </Stepper>
 
           </Container>       
