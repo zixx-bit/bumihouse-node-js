@@ -9,30 +9,33 @@ import toast from 'react-hot-toast';
 import { createResidency } from '../../utils/api';
 
 
-const Facilities = ({prevStep, propertyDetails, 
-  setPropertyDetails, setOpened, setActiveStep, }) => {
+const Facilities = ({prevStep, propertyDetails, setPropertyDetails,
+  setOpened, setActiveStep}) => {
+
   const form = useForm({
-    initialValues: {
-      bathrooms: propertyDetails.facilities.bathrooms,
-      parking: propertyDetails. facilities.parking,
-      bedrooms: propertyDetails. facilities.bedrooms,     
+    initialValues: {     
+      bathrooms: propertyDetails?.facilities?.bathrooms,
+      parking: propertyDetails?.facilities?.parking,
+      bedrooms: propertyDetails?.facilities?.bedrooms,     
     },
     validate: {
-      bedrooms: (value) => (value < 1 ? "must have atleast one room" : null),
+      bedrooms: (value) => value < 1 ? "must have atleast one room" : null,
       bathrooms: (value) => value < 1 ? "Must have atleast one bathroom": null,
     },
   })
+  // const {title, description, price} = form.values;
 
   const {bathrooms, bedrooms, parking} = form.values;
-  console.log(bathrooms,bedrooms,parking);
+  // console.log(bathrooms,bedrooms,parking);
 
   const handleSubmit = () => {
     const { hasErrors } = form.validate();
     if (!hasErrors) {
-      setPropertyDetails((prev) => ({
-        ...prev, 
-        facilities:{ bedrooms, parking, bathrooms}
-      }));
+      setPropertyDetails((prev) =>
+         ({...prev, facilities:{ bedrooms, parking, bathrooms}
+      })
+      
+      );
       mutate()      
     }
   }
@@ -44,12 +47,14 @@ const {refetch: refetchProperties} = useProperties();
 
 const {mutate , isLoading} = useMutation ({
       mutationFn: () => createResidency({
-        ...propertyDetails, facilities: {bedrooms, parking, bathrooms},
+        ...propertyDetails,
+          facilities:{ bedrooms, parking, bathrooms}
+        ,
       },token),
       onError: ({response}) => toast.error (response.data.message, {position: "bottom-right"}),
       onSettled: () => {
         toast.success ("Added successfully", {position: "bottom-right"});
-        setPropertyDetails = ({              
+        setPropertyDetails({
           title: "",
           description: "",
           price: 0,
@@ -57,21 +62,21 @@ const {mutate , isLoading} = useMutation ({
           city: "",
           address: "",       
           image: null,
+
           facilities: {
             bathrooms: 0,
             parking: 0,
             bedrooms: 0,
           },
+
         userEmail: user?.email,
-        });
+        })
+     
         setOpened(false);
         setActiveStep(0);
         refetchProperties();
       }
-
     })
-
-
   return (
     <Box maw="30%" mx="auto" my="sm">
     <form 
@@ -107,13 +112,12 @@ const {mutate , isLoading} = useMutation ({
 
     <Button type="submit" color="green" 
     disabled={isLoading}
-    >Add Property
-    {isLoading ? "Submitting" : "Add Property"}
+    >
+    {isLoading ? "Saving.." : "Submit"}
     </Button>
     </Group>
     </form>
     </Box>
   )
-
 }
 export default Facilities
