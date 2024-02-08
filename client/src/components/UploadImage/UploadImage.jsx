@@ -26,6 +26,9 @@ const UploadImage = ({prevStep, nextStep, propertyDetails, setPropertyDetails}) 
             {
             setImageURL(result.info.secure_url)    
             }
+            else{
+                err.event ==="error"
+            }
         })
 
     },[])
