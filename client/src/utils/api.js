@@ -177,7 +177,7 @@ export const getAllBookings = async(email, token ) => {
 export const  createResidency = async (data, token) => {
     try {
         const res = await api.post(
-            `/residency/create`,
+            `/residency/create`, 
             {
                 data
             },
@@ -187,6 +187,7 @@ export const  createResidency = async (data, token) => {
                 },
             }
         )
+        return res;
         
     } catch (error) {
         throw error
