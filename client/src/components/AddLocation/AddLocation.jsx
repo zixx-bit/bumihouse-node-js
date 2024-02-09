@@ -22,16 +22,16 @@ const  AddLocation = ({propertyDetails, setPropertyDetails, nextStep}) => {
       country: (value) => validateString(value),
       city: (value) => validateString(value),
       address: (value) => validateString(value)
-    }
-  })
+    },
+  });
 
   const {country, city, address} = form.values;
-  console.log(country, city, address)
+  // console.log(country, city, address)
 
   const handleSubmit = () =>{
     const{hasErrors} = form.validate()
-    if (!hasErrors) {
-      setPropertyDetails((prev) => ({...prev, city, address, country}))
+      if (!hasErrors) {
+      setPropertyDetails((prev) => ({...prev, country, city, address}))
       nextStep()
     }
   }
