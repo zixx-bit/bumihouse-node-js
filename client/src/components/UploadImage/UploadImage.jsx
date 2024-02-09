@@ -6,7 +6,7 @@ import { Button, Group } from '@mantine/core';
 const UploadImage = ({prevStep, nextStep, propertyDetails, setPropertyDetails}) => {
  
     const handleNext = () =>{
-        setPropertyDetails(()=> ({...prevStep, image:imageURL}));
+        setPropertyDetails((prev)=> ({...prev, image:imageURL}));
         nextStep();
 
     }
