@@ -11,6 +11,8 @@ import "react-toastify/dist/ReactToastify.css";
 import {Toaster} from 'react-hot-toast';
 import Property from "./pages/Property/Property";
 import UserDetailsContext from "./context/UserDetailsContext";
+import Bookings from "./pages/Bookings/Bookings";
+import Favorites from "./pages/Favourites/Favorites";
 
 function App() {
 
@@ -32,6 +34,8 @@ function App() {
         <Route index element={<Properties/>}/>
         <Route path = ":propertyId" element={<Property/>}/>
         </Route>
+        <Route path="/bookings" element={<Bookings/>}/>
+        <Route path="/favourites" element={<Favorites/>}></Route>
         </Route>            
       </Routes>
     </Suspense>
