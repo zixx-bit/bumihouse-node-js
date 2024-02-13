@@ -86,9 +86,7 @@ const Property = () => {
                 {/* head */}
                 <div className="flexStart head">
                 {bookings?.map((booking) => booking.id).includes(id) ? (
-                  <> 
-                 
-                  
+                  <>                  
                     <span  className="primaryText">{data?.title}</span>
                     </> ): 
                       (<span className="primaryText">{data?.title}</span>)
@@ -112,25 +110,28 @@ const Property = () => {
                     {/* rooms */}
                     <div className="flexStart facility">
                         <MdMeetingRoom size={20} color="#1F3E72"/>
-                        <span>{data?.facilities?.bedrooms}Room/s</span>
+                        <span>{data?.facilities?.bedrooms} Room/s</span>
                     </div>
                 </div>
 
                 {/* description */}
-                <span className="secondaryText" style={{textAlign:"justify"}}>{data?.description}</span>
+                <span className="secondaryText" style={{textAlign:"justify"}}>
+                {data?.description}</span>
                 {/* adress */}
-            <div className='flexStart' style={{gap: "1rem"}}>
+            <div className="flexStart" style={{gap: "1rem"}}>
                 <MdLocationPin size={25}/>
                 <span className="secondaryText">
                     {
-                        data?.address
-                    }
+                        data?.address 
+                    }{" "}
+                    
                     {
                         data?.city
-                    }
+                    }{" "}
+                
                     {
                         data?.country
-                    }
+                    }{" "}
 
                 </span>
 
