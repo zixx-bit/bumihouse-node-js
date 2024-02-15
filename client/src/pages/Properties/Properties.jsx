@@ -41,8 +41,8 @@ const Properties = () => {
       <div className='paddings flexCenter properties'>
         {
          // data.map((card, i)=> (<PropertyCard card={card} key={i}/>))
-          data.filter((property) => property.title.includes(filter)||
-          property.city.includes(filter)||
+          data.filter((property) => property.title.toLowerCase().includes(filter.toLowerCase())||
+          property.city.toLowerCase().includes(filter.toLowerCase())||
           //property.price.includes(filter)||
           property.country.toLowerCase().includes(filter.toLowerCase()))
           .map((card, i) => (
